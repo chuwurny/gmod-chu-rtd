@@ -1,0 +1,1 @@
+chuRtd.Effect("drug-bullets", "Пули-хиппи")

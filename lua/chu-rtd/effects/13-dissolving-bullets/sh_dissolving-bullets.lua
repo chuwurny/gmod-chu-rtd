@@ -1,0 +1,1 @@
+chuRtd.Effect("dissolving-bullets", "Испепеляющие пули")

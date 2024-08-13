@@ -1,0 +1,1 @@
+chuRtd.Effect("lags", "Л-ла-аги")

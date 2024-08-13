@@ -1,0 +1,1 @@
+chuRtd.Effect("inside-prop", "Проп")

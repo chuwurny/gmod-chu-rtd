@@ -1,0 +1,1 @@
+chuRtd.Effect("eye-for-an-eye", "Око за око")

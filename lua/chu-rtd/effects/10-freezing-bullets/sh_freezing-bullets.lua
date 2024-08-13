@@ -1,0 +1,1 @@
+chuRtd.Effect("freezing-bullets", "Замораживающие пули")

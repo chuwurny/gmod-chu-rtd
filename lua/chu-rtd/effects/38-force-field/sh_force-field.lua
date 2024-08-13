@@ -1,0 +1,1 @@
+chuRtd.Effect("force-field", "Отталкивание")
