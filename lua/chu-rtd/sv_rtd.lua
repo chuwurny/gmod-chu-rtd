@@ -45,6 +45,8 @@ function chuRtd.Roll(ply, effectId)
 
     xpcall(effect.OnRolled, ErrorNoHaltWithStack, effect, ply, data)
 
+    ply:RPC("chuRtd.__OnRolled", chuRtd.Effects:Index(effectId))
+
     if effect.FormatMessage ~= effect._NO_FORMAT_MESSAGE then
         x.PrettyPrintAll(effect:FormatMessage(ply, effect, data))
     else
@@ -97,6 +99,8 @@ function chuRtd.Stop(ply, reasonPhrase)
     ply:SetNWInt("churtd effect", 0)
 
     xpcall(effect.OnEnded, ErrorNoHaltWithStack, effect, ply, data)
+
+    ply:RPC("chuRtd.__OnEnded", chuRtd.Effects:Index(effect.Id))
 
     x.PrettyPrintLangAll(
         "chu-rtd",
