@@ -1,0 +1,1 @@
+chuRtd.Effects:Get("blindness")

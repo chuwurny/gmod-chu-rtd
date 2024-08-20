@@ -21,6 +21,7 @@ lang:Phrase("effect.dissolve.name", "Расщипление")
 lang:Phrase("effect.freeze.name", "Заморозка")
 lang:Phrase("effect.1hp.name", "1 ХП")
 lang:Phrase("effect.drunk.name", "Пьянство")
+lang:Phrase("effect.blindness.name", "Слепота")
 
 lang:Phrase("effect.lets-build.name", "Мастерство строительства")
 lang:Phrase("effect.lets-build.oh-i-love-building", "Ох, я обожаю строить!")
