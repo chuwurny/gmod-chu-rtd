@@ -16,5 +16,5 @@ end)
 hook.Add("PlayerDeath", "churtd process", function(ply)
     if not ply.RtdData then return end
 
-    chuRtd.Stop(ply)
+    chuRtd.Stop(ply, "died-with-active-effect")
 end)
