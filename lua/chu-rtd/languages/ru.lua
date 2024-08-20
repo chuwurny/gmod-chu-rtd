@@ -21,6 +21,18 @@ lang:Phrase("effect.dissolve.name", "Расщипление")
 lang:Phrase("effect.freeze.name", "Заморозка")
 lang:Phrase("effect.1hp.name", "1 ХП")
 lang:Phrase("effect.drunk.name", "Пьянство")
+
+lang:Phrase("effect.lets-build.name", "Мастерство строительства")
+lang:Phrase("effect.lets-build.oh-i-love-building", "Ох, я обожаю строить!")
+lang:Phrase("effect.lets-build.bob-the-builder-can-we-fix-it",
+            "Бо-ооо-об строитель всё построит, бо-ооо-б строитель без проблем!")
+lang:Phrase("effect.lets-build.bought-gmod-to-build",
+            "Я купил гмод чтобы строить")
+lang:Phrase("effect.lets-build.i-hate-pvp-lets-build",
+            "В жопу пвп, давайте строить!")
+lang:Phrase("effect.lets-build.im-gonna-build-huge-d-i-mean-house",
+            "Я сейчас построю огромный чл... я имел в виду дом!")
+
 lang:Phrase("effect.beacon.name", "Маяк")
 lang:Phrase("effect.179fov.name", "Странное ощущение")
 lang:Phrase("effect.force-field.name", "Отталкивающее поле")
