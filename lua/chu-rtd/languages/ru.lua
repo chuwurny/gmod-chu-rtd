@@ -49,7 +49,11 @@ lang:Phrase("effect.magnet.name", "Магнит")
 lang:Phrase("effect.strong-recoil.name", "Сильная отдача")
 lang:Phrase("effect.no-step.name", "НеМогуПоднятьНогу")
 lang:Phrase("effect.lags.name", "Л-лаги")
+
 lang:Phrase("effect.prop-madness.name", "Prop madness")
+lang:Phrase("effect.prop-madness.crouch-to-fly-props-at-aimpos",
+            "Присядь чтобы запустить пропы в точку куда ты смотришь")
+
 lang:Phrase("effect.head-roll.name", "Перевернутая голова")
 lang:Phrase("effect.dizzy.name", "Усталость")
 lang:Phrase("effect.strip-weapons.name", "Потеря оружия")

@@ -50,6 +50,9 @@ function effect:OnRolled(ply, data)
 
         data.Props[i] = ent
     end
+
+    -- Print some help
+    ply:PrettyPrintLang(x.ColorGreen, { self.LanguagePhrases[1] })
 end
 
 function effect:OnTick(ply, data)
