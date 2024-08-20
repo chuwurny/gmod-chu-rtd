@@ -13,7 +13,12 @@ local MODELS = {
     "models/props_wasteland/rockgranite02c.mdl",
 }
 
+local PI2 = math.pi * 2
+local PI4 = math.pi * 4
+
 local AMOUNT = 8
+local RADIUS = 400
+local HEIGHT = 150
 
 function effect:OnRolled(ply, data)
     data.Props = {}
@@ -21,7 +26,7 @@ function effect:OnRolled(ply, data)
     local origin = ply:GetShootPos()
     origin.z = origin.z + 10
 
-    local step = (math.pi * 2) / AMOUNT
+    local step = PI2 / AMOUNT
 
     for i = 1, AMOUNT do
         local ent = ents.Create("prop_physics")
@@ -31,9 +36,9 @@ function effect:OnRolled(ply, data)
 
         ent:SetPos(
             origin + Vector(
-                math.cos(step * i) * 300,
-                math.sin(step * i) * 300,
-                0
+                math.cos(step * i) * RADIUS,
+                math.sin(step * i) * RADIUS,
+                HEIGHT
             )
         )
 
@@ -53,10 +58,10 @@ function effect:OnTick(ply, data)
     end
 
     local origin = ply:GetShootPos()
-    origin.z = origin.z + 80
+    origin.z = origin.z + HEIGHT
 
-    local step = (math.pi * 2) / #data.Props
-    local spin = (CurTime() * 2) % (math.pi * 4)
+    local step = PI2 / #data.Props
+    local spin = (CurTime() * 2) % PI4
 
     for i, prop in ipairs(data.Props) do
         if IsValid(prop) then
@@ -78,8 +83,8 @@ function effect:OnTick(ply, data)
                     vel = vel / 3
 
                     dest = origin + Vector(
-                        math.cos((step * i) + spin) * 400,
-                        math.sin((step * i) + spin) * 400,
+                        math.cos((step * i) + spin) * RADIUS,
+                        math.sin((step * i) + spin) * RADIUS,
                         0
                     )
                 end
