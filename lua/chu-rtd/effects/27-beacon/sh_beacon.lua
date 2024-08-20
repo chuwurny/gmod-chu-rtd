@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("beam", chuRtd.COLOR_EVIL)
+local effect = chuRtd.Effect("beacon", chuRtd.COLOR_EVIL)
 
 if CLIENT then
     local SEGMENTS = 18
@@ -8,10 +8,10 @@ if CLIENT then
 
     local PI2 = math.pi * 2
 
-    local beams = {}
+    local beacons = {}
 
-    function effect:AddBeam(pos, duration, color)
-        table.insert(beams, {
+    function effect:AddBeacon(pos, duration, color)
+        table.insert(beacons, {
             Pos = pos,
             Duration = duration,
             Color = color,
@@ -21,26 +21,26 @@ if CLIENT then
         })
     end
 
-    function chuRtd.__AddBeam(pos, duration, color)
-        effect:AddBeam(pos, duration, color)
+    function chuRtd.__AddBeacon(pos, duration, color)
+        effect:AddBeacon(pos, duration, color)
     end
 
-    function effect:RenderBeam(beamData)
+    function effect:RenderBeacon(beacon)
         local step = PI2 / (SEGMENTS - 1)
 
         render.StartBeam(SEGMENTS)
 
         for i = 1, SEGMENTS do
-            local d = 1 - ((beamData.EndTime - CurTime()) / beamData.Duration)
+            local d = 1 - ((beacon.EndTime - CurTime()) / beacon.Duration)
             local r = Lerp(d, START_RADIUS, END_RADIUS)
 
             local pos = Vector(
-                beamData.Pos.x + (math.cos(i * step) * r),
-                beamData.Pos.y + (math.sin(i * step) * r),
-                beamData.Pos.z
+                beacon.Pos.x + (math.cos(i * step) * r),
+                beacon.Pos.y + (math.sin(i * step) * r),
+                beacon.Pos.z
             )
 
-            render.AddBeam(pos, WIDTH, 0, beamData.Color)
+            render.AddBeam(pos, WIDTH, 0, beacon.Color)
         end
 
         render.EndBeam()
@@ -51,12 +51,12 @@ if CLIENT then
 
         render.SetColorMaterial()
 
-        x.FilterSequence(beams, function(beam)
+        x.FilterSequence(beacons, function(beam)
             if t > beam.EndTime then
                 return false
             end
 
-            effect:RenderBeam(beam)
+            effect:RenderBeacon(beam)
 
             return true
         end)
