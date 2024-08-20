@@ -27,3 +27,19 @@ end
 function PLAYER:IsRtdActive()
     return self:GetNWInt("churtd effect", 0) ~= 0
 end
+
+function PLAYER:GetRtdStartTime()
+    if not self:IsRtdActive() then
+        return 0
+    end
+
+    return self:GetNW2Float("churtd starttime", 0)
+end
+
+function PLAYER:GetRtdEndTime()
+    if not self:IsRtdActive() then
+        return 0
+    end
+
+    return self:GetNW2Float("churtd endtime", 0)
+end
