@@ -1,1 +1,1 @@
-chuRtd.Effect("eye-for-an-eye", "Око за око")
+chuRtd.Effect("eye-for-an-eye", chuRtd.COLOR_EVIL)

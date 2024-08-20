@@ -1,1 +1,1 @@
-chuRtd.Effect("drug-bullets", "Пули-хиппи")
+chuRtd.Effect("drug-bullets", chuRtd.COLOR_GOOD)

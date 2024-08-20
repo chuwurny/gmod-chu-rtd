@@ -1,1 +1,1 @@
-chuRtd.Effect("death", "Смерть"):Once()
+chuRtd.Effect("death", chuRtd.COLOR_EVIL)

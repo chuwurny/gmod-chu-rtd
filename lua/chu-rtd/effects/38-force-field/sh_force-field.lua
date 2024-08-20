@@ -1,1 +1,1 @@
-chuRtd.Effect("force-field", "Отталкивание")
+chuRtd.Effect("force-field", chuRtd.COLOR_NEUTRAL)

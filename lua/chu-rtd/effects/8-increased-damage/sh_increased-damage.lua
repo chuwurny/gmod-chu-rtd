@@ -1,1 +1,1 @@
-chuRtd.Effect("increased-damage", "Увеличенный урон")
+chuRtd.Effect("increased-damage", chuRtd.COLOR_GOOD)

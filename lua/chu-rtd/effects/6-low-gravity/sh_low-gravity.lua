@@ -1,1 +1,1 @@
-chuRtd.Effect("low-gravity", "Низкая гравитация")
+chuRtd.Effect("low-gravity", chuRtd.COLOR_NEUTRAL)

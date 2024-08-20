@@ -1,1 +1,1 @@
-chuRtd.Effect("fast-speed", "Увеличенная скорость")
+chuRtd.Effect("fast-speed", chuRtd.COLOR_GOOD)

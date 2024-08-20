@@ -49,22 +49,29 @@ function chuRtd.Roll(ply, effectId)
         local msg = {
             team.GetColor(ply:Team()),
             ply:Name(),
-            x.ColorGray,
-            " выпал эффект ",
+            x.ColorLightGray,
+            " ",
+            { "rolled-effect" },
             effect.Color,
-            effect.Name
+            " ",
+            { effect.PhraseName }
         }
 
         if duration then
-            table.insert(msg, x.ColorGray)
-            table.insert(msg, " на ")
+            table.insert(msg, x.ColorLightGray)
+            table.insert(msg, " ")
+            table.insert(msg, { "with-duration" })
+
             table.insert(msg, x.ColorWhite)
+            table.insert(msg, " ")
             table.insert(msg, duration)
-            table.insert(msg, x.ColorGray)
-            table.insert(msg, " сек.")
+
+            table.insert(msg, x.ColorLightGray)
+            table.insert(msg, " ")
+            table.insert(msg, { "seconds" })
         end
 
-        x.PrettyPrintAll(unpack(msg))
+        x.PrettyPrintLangAll("chu-rtd", unpack(msg))
     end
 end
 
@@ -78,7 +85,7 @@ function chuRtd.TryRoll(ply, effectId)
     return true
 end
 
-function chuRtd.Stop(ply)
+function chuRtd.Stop(ply, reasonPhrase)
     if not ply.RtdData then return end
 
     local effect = ply:GetRtdEffect()
@@ -89,12 +96,12 @@ function chuRtd.Stop(ply)
 
     xpcall(effect.OnEnded, ErrorNoHaltWithStack, effect, ply, data)
 
-    x.PrettyPrintAll(
-        x.ColorGray,
-        "Эффект ",
+    x.PrettyPrintLangAll(
+        "chu-rtd",
         team.GetColor(ply:Team()),
         ply:Name(),
-        x.ColorGray,
-        " закончился"
+        x.ColorLightGray,
+        " ",
+        { reasonPhrase or "effect-ended" }
     )
 end

@@ -1,1 +1,1 @@
-chuRtd.Effect("prop-madness", "Prop Madness")
+chuRtd.Effect("prop-madness", chuRtd.COLOR_GOOD)

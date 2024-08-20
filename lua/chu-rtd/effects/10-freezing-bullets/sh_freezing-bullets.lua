@@ -1,1 +1,1 @@
-chuRtd.Effect("freezing-bullets", "Замораживающие пули")
+chuRtd.Effect("freezing-bullets", chuRtd.COLOR_GOOD)

@@ -11,5 +11,5 @@ function effect:OnTick(ply)
     nade:Spawn()
     nade:Activate()
 
-    nade:Fire("SetTimer", 0.5)
+    nade:Fire("SetTimer", 2)
 end

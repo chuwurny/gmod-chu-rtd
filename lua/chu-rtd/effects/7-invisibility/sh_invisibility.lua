@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("invisibility", "Невидимость")
+local effect = chuRtd.Effect("invisibility", chuRtd.COLOR_GOOD)
 
 if CLIENT then
     hook.Add("PreDrawPlayer", "rtd invisibility", function(ply)

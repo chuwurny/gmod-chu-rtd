@@ -1,1 +1,1 @@
-chuRtd.Effect("magnet", "Магнит")
+chuRtd.Effect("magnet", chuRtd.COLOR_NEUTRAL)

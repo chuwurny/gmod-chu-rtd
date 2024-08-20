@@ -1,1 +1,1 @@
-chuRtd.Effect("lags", "Л-ла-аги")
+chuRtd.Effect("lags", chuRtd.COLOR_EVIL)

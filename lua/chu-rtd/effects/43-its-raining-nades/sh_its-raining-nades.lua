@@ -1,1 +1,1 @@
-chuRtd.Effect("its-raining-nades", "Дождь из гранат, аллилуйя")
+chuRtd.Effect("its-raining-nades", chuRtd.COLOR_EVIL)

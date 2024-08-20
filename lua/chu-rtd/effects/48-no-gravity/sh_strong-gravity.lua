@@ -1,1 +1,1 @@
-chuRtd.Effect("no-gravity", "Гравитация?")
+chuRtd.Effect("no-gravity", chuRtd.COLOR_EVIL)

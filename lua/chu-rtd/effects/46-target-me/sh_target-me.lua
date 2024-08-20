@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("target-me", "Янитакусик")
+local effect = chuRtd.Effect("target-me", chuRtd.COLOR_EVIL)
 
 if CLIENT then
     local targetList = x.Set()

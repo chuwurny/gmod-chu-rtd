@@ -64,10 +64,14 @@ if CLIENT then
     end
 end
 
-function chuRtd.Effect(id, name)
+function chuRtd.Effect(id, color)
     local effect = setmetatable({
         Id = id,
-        Name = name,
+
+        PhraseName = "effect." .. id .. ".name",
+        Color = color,
+
+        LanguagePhrases = {},
 
         _Once = false,
         _Duration = nil,

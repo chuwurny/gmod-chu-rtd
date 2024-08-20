@@ -1,1 +1,1 @@
-chuRtd.Effect("inside-prop", "Проп")
+chuRtd.Effect("inside-prop", chuRtd.COLOR_NEUTRAL)

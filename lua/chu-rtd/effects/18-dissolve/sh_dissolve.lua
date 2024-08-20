@@ -1,1 +1,1 @@
-chuRtd.Effect("dissolve", "Испепелился"):Once()
+chuRtd.Effect("dissolve", chuRtd.COLOR_EVIL)

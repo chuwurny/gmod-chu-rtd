@@ -1,1 +1,1 @@
-chuRtd.Effect("no-step", "НеМогуПоднятьНогу")
+chuRtd.Effect("no-step", chuRtd.COLOR_EVIL)

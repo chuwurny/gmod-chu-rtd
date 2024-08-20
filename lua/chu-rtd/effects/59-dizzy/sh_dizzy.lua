@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("dizzy", "Слабость")
+local effect = chuRtd.Effect("dizzy", chuRtd.COLOR_EVIL)
 
 if CLIENT then
     effect:HookLocalPlayer("CreateMove", function(_, _, cmd)

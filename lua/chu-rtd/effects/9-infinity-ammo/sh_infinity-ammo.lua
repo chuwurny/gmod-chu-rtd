@@ -1,1 +1,1 @@
-chuRtd.Effect("infinity-ammo", "Бесконечная обойма")
+chuRtd.Effect("infinity-ammo", chuRtd.COLOR_GOOD)

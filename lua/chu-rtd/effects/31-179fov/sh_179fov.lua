@@ -1,1 +1,1 @@
-chuRtd.Effect("179fov", "Странное ощущение")
+chuRtd.Effect("179fov", chuRtd.COLOR_EVIL)

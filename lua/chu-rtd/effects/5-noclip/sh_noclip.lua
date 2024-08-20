@@ -1,1 +1,1 @@
-chuRtd.Effect("noclip", "Ноуклип")
+chuRtd.Effect("noclip", chuRtd.COLOR_GOOD)

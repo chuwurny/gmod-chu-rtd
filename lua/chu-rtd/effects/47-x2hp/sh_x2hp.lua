@@ -1,1 +1,1 @@
-chuRtd.Effect("x2hp", "Удвоение здоровья"):Once()
+chuRtd.Effect("x2hp", chuRtd.COLOR_GOOD)

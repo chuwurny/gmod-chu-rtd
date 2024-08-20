@@ -1,1 +1,1 @@
-chuRtd.Effect("godmode", "Режим бога")
+chuRtd.Effect("godmode", chuRtd.COLOR_GOOD)
