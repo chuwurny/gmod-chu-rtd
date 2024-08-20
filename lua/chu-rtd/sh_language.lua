@@ -18,8 +18,16 @@ for _, effect in ipairs(chuRtd.Effects.Values) do
 
     ctx:DefineLanguagePhrase(phrasePrefix .. "name")
 
-    for _, phrase in ipairs(effect.LanguagePhrases) do
-        ctx:DefineLanguagePhrase(phrasePrefix .. phrase)
+    if not effect._LanguagePhrasesAltered then
+        effect._LanguagePhrasesAltered = true
+
+        for i, phrase in ipairs(effect.LanguagePhrases) do
+            phrase = phrasePrefix .. phrase
+
+            effect.LanguagePhrases[i] = phrase
+
+            ctx:DefineLanguagePhrase(phrase)
+        end
     end
 end
 

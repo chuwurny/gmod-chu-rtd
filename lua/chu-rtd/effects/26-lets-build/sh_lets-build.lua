@@ -12,8 +12,6 @@ if CLIENT then
     function effect:SayRandomPhrase()
         local phraseId = self.LanguagePhrases[math.random(#self.LanguagePhrases)]
 
-        phraseId = "effect." .. self.Id .. "." .. phraseId
-
         RunConsoleCommand("say", chuRtd.LanguageContext:Phrase(phraseId))
     end
 

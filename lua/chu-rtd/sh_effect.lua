@@ -72,6 +72,7 @@ function chuRtd.Effect(id, color)
         Color = color,
 
         LanguagePhrases = {},
+        _LanguagePhrasesAltered = false,
 
         _Once = false,
         _Duration = nil,
