@@ -40,8 +40,11 @@ function chuRtd.Roll(ply, effectId)
     end
 
     ply:SetNWInt("churtd effect", chuRtd.Effects:Index(effectId))
-    ply:SetNW2Float("churtd starttime", data.StartTime)
-    ply:SetNW2Float("churtd endtime", data.EndTime)
+
+    if data then
+        ply:SetNW2Float("churtd starttime", data.StartTime)
+        ply:SetNW2Float("churtd endtime", data.EndTime)
+    end
 
     xpcall(effect.OnRolled, ErrorNoHaltWithStack, effect, ply, data)
 
