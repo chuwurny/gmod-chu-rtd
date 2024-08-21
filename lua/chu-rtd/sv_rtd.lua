@@ -2,18 +2,23 @@ function chuRtd.Roll(ply, effectId)
     local isRandom = not effectId
     local effect
 
-    repeat
-        if isRandom then
-            local _
-            _, effectId = table.Random(chuRtd.Effects.Indices)
-        end
+    if isRandom then
+        local effects = x.CopySequence(chuRtd.Effects.Values)
 
+        repeat
+            x.Assert(#effects ~= 0,
+                     "Cannot pick random effect: no suitable effects")
+
+            effect = table.remove(effects, math.random(#effects))
+        until effect:CanRoll(ply) and
+              hook.Run("ChuRtdCanRoll", ply, effect) ~= false
+    else
         effect = x.Assert(
             chuRtd.Effects:Get(effectId),
             "Effect %s is not valid!",
             effectId
         )
-    until not isRandom or effect:CanRoll(ply)
+    end
 
     if ply:IsRtdActive() then
         chuRtd.Stop(ply)
@@ -21,8 +26,7 @@ function chuRtd.Roll(ply, effectId)
 
     local data, duration
 
-    if effect._Once then
-    else
+    if not effect._Once then
         data = {}
 
         ply.RtdData = data
@@ -37,11 +41,9 @@ function chuRtd.Roll(ply, effectId)
 
         data.StartTime = CurTime()
         data.EndTime = data.StartTime + duration
-    end
 
-    ply:SetNWInt("churtd effect", chuRtd.Effects:Index(effectId))
+        ply:SetNWInt("churtd effect", chuRtd.Effects:Index(effectId))
 
-    if data then
         ply:SetNW2Float("churtd starttime", data.StartTime)
         ply:SetNW2Float("churtd endtime", data.EndTime)
     end
@@ -51,7 +53,7 @@ function chuRtd.Roll(ply, effectId)
     ply:RPC("chuRtd.__OnRolled", chuRtd.Effects:Index(effectId))
 
     if effect.FormatMessage ~= effect._NO_FORMAT_MESSAGE then
-        x.PrettyPrintAll(effect:FormatMessage(ply, effect, data))
+        x.PrettyPrintLangAll("chu-rtd", effect:FormatMessage(ply, effect, data))
     else
         local msg = {
             team.GetColor(ply:Team()),
