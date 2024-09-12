@@ -6,7 +6,7 @@ experience!
 ## Effects
 - [x] **God mode**
 - [ ] **Toxic**: Deal 1000 damage to nearby players
-- [ ] **Overheal**: Sets your hp to 1000 and slowly reduces it back to normal
+- [x] **Overheal**: Sets your hp to 1000 and slowly reduces it back to normal
 - [x] **Fast speed**
 - [x] **Noclip**
 - [x] **Low gravity**

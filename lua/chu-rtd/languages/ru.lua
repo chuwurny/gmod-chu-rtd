@@ -8,6 +8,7 @@ lang:Phrase("died-with-active-effect", "умер с активным эффек�
 lang:Phrase("you-already-have-rtd", "У тебя уже есть эффект")
 
 lang:Phrase("effect.godmode.name", "Режим бога")
+lang:Phrase("effect.overheal.name", "Сверхлечение")
 lang:Phrase("effect.fast-speed.name", "Быстрая скорость")
 lang:Phrase("effect.noclip.name", "Ноуклип")
 lang:Phrase("effect.low-gravity.name", "Низкая гравитация")

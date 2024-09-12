@@ -8,6 +8,7 @@ lang:Phrase("died-with-active-effect", "died with active effect")
 lang:Phrase("you-already-have-rtd", "You already have effect")
 
 lang:Phrase("effect.godmode.name", "Godmode")
+lang:Phrase("effect.overheal.name", "Overheal")
 lang:Phrase("effect.fast-speed.name", "Fast speed")
 lang:Phrase("effect.noclip.name", "Noclip")
 lang:Phrase("effect.low-gravity.name", "Low gravity")
