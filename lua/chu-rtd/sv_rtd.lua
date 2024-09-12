@@ -12,6 +12,8 @@ function chuRtd.Roll(ply, effectId)
             effect = table.remove(effects, math.random(#effects))
         until effect:CanRoll(ply) and
               hook.Run("ChuRtdCanRoll", ply, effect) ~= false
+
+        effectId = effect.Id
     else
         effect = x.Assert(
             chuRtd.Effects:Get(effectId),
