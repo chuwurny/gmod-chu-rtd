@@ -56,4 +56,5 @@ lang:Phrase("effect.prop-madness.crouch-to-fly-props-at-aimpos",
 
 lang:Phrase("effect.head-roll.name", "Перевернутая голова")
 lang:Phrase("effect.dizzy.name", "Усталость")
+lang:Phrase("effect.wallhack.name", "ВХ")
 lang:Phrase("effect.strip-weapons.name", "Потеря оружия")
