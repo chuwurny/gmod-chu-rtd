@@ -1,3 +1,5 @@
+x.Dependency("chu-rtd/helpers", "sv_bullets.lua")
+
 local effect = chuRtd.Effects:Get("freezing-bullets")
 
 chuRtd.Helpers.PostDamage(effect, function(target, dmg)

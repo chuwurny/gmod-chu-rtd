@@ -1,5 +1,7 @@
 x.Dependency("chu-rtd/effects/24-drunk")
 
+x.Dependency("chu-rtd/helpers", "sv_bullets.lua")
+
 local effect = chuRtd.Effects:Get("drug-bullets")
 
 local drunkEffect = chuRtd.Effects:Get("drunk")
