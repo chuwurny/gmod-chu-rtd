@@ -1,23 +1,26 @@
 x.Dependency("chu-rtd/helpers", "sv_bullets.lua")
 
+x.Dependency("chu-rtd/effects/20-freeze")
+
+local freezeEffect = chuRtd.Effects:Get("freeze")
+
 local effect = chuRtd.Effects:Get("freezing-bullets")
 
 chuRtd.Helpers.PostDamage(effect, function(target, dmg)
-    target:EmitSound("Canals.d1_canals_01a_wood_strain3")
-    target:Freeze(true)
+    if not target._rtd_freezeData then
+        target._rtd_freezeData = {}
 
-    target:ScreenFade(SCREENFADE.IN, x.ColorBlue, 1, 0)
-
-    target._rtd_oMaterial = target._rtd_oMaterial or target:GetMaterial()
-    target:SetMaterial("debug/env_cubemap_model")
+        freezeEffect:OnRolled(target, target._rtd_freezeData)
+    else
+        -- don't pass real data, because it will override old material
+        freezeEffect:OnRolled(target, {})
+    end
 
     timer.Create("rtd freezing bullets unfreeze " .. target:UserID(), 0.5, 1, function()
         if not IsValid(target) then return end
 
-        target:EmitSound("Canals.d1_canals_01a_wood_strain4")
-        target:Freeze(false)
+        freezeEffect:OnEnded(target, target._rtd_freezeData)
 
-        target:SetMaterial(target._rtd_oMaterial)
-        target._rtd_oMaterial = nil
+        target._rtd_freezeData = nil
     end)
 end)
