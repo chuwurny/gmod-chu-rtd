@@ -12,6 +12,7 @@ ctx:DefineLanguagePhrase("with-duration")
 ctx:DefineLanguagePhrase("seconds")
 ctx:DefineLanguagePhrase("effect-ended")
 ctx:DefineLanguagePhrase("died-with-active-effect")
+ctx:DefineLanguagePhrase("you-already-have-rtd")
 
 for _, effect in ipairs(chuRtd.Effects.Values) do
     local phrasePrefix = "effect." .. effect.Id .. "."

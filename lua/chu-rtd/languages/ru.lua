@@ -5,6 +5,7 @@ lang:Phrase("with-duration", "длительностью")
 lang:Phrase("seconds", "сек.")
 lang:Phrase("effect-ended", "эффект закончен")
 lang:Phrase("died-with-active-effect", "умер с активным эффектом")
+lang:Phrase("you-already-have-rtd", "У тебя уже есть эффект")
 
 lang:Phrase("effect.godmode.name", "Режим бога")
 lang:Phrase("effect.fast-speed.name", "Быстрая скорость")

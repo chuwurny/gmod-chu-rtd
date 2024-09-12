@@ -5,6 +5,7 @@ lang:Phrase("with-duration", "with duration")
 lang:Phrase("seconds", "sec.")
 lang:Phrase("effect-ended", "effect ended")
 lang:Phrase("died-with-active-effect", "died with active effect")
+lang:Phrase("you-already-have-rtd", "You already have effect")
 
 lang:Phrase("effect.godmode.name", "Godmode")
 lang:Phrase("effect.fast-speed.name", "Fast speed")

@@ -88,6 +88,8 @@ end
 
 function chuRtd.TryRoll(ply, effectId)
     if ply:IsRtdActive() then
+        ply:PrettyPrintLang("chu-rtd", x.ColorRed, { "you-already-have-rtd" })
+
         return false
     end
 
