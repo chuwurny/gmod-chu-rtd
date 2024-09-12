@@ -55,6 +55,7 @@ if CLIENT then
             local lp = LocalPlayer()
 
             if not IsValid(lp) then return end
+            if not lp.RtdData then return end
             if lp:GetRtdEffect() ~= self then return end
 
             local data = lp.RtdData
