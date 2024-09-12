@@ -4,74 +4,74 @@ Bring !rtd command from Team Fortress 2/Counter-Strike into your Garry's Mod
 experience!
 
 ## Effects
-[x] **God mode**
-[ ] **Toxic**: Deal 1000 damage to nearby players
-[ ] **Overheal**: Sets your hp to 1000 and slowly reduces it back to normal
-[x] **Fast speed**
-[x] **Noclip**
-[x] **Low gravity**
-[x] **Invisibility**
-[x] **Increased damage**
-[x] **Infinity ammo**
-[x] **Freezing bullets**: Freezes target for a second
-[x] **Drug bullets**
-[ ] **Taunt bullets**: Forces player to dance
-[x] **Dissolving bullets**
-[ ] **Homing projectiles**
-[x] **Instant death**
-[ ] **Explosion**: Deals 500 damage around you
-[ ] **Firework**: Turns you into a firework
-[x] **Disslove**: Dissolves you
-[x] **Snail**: Slows you
-[x] **Freeze**
-[ ] **Time bomb**: Turns you into a time bomb
-[ ] **Ignition**
-[x] **1 HP**
-[x] **Drunk**
-[ ] **Blindness**
-[x] **Let's build**: Strips all your weapons and gives you physgun and toolgun
-[x] **Beacon**
-[ ] **Uncontrollable dance**
-[ ] **Mingebags everywhere**: Clientside change that turn every player into T-Pose Kleiner
-[ ] **Earthquake**
-[x] **Strange feeling**: FOV 179
-[ ] **No survival skills**: Increases any input damage to you by 3
-[ ] **Second life**
-[ ] **Big head**
-[ ] **Big model**
-[ ] **Small model**
-[x] **Force field**: Pushes players away from you
-[x] **Strong gravity**
-[x] **Propify**: Attaches you to a prop
-[x] **Eye for an eye**: Mirrors any output damage to you
-[ ] **Airstrike**: Launch a rocket to aim position every second
-[x] **It's raining 'nades**: Spawn grenades every second above your head
-[ ] **Explosive bullets**
-[ ] **Fast hands**: Increases reload/shoot speed
-[x] **The unique one**: Everyone can see you through walls
-[x] **Double health**
-[x] **Spaceman**: Deny the gravity!
-[x] **Magnet**: Attract players towards you
-[ ] **Timed napalm bomb**: Same as time bomb but ignites everyone nearby
-[ ] **AR2 projectiles**: Shoot ar2 balls! One ball = one full clip of weapon
-[x] **Strong recoil**
-[ ] **Inverted movement**
-[x] **Heavy legs**: Can't walk any stairs
-[ ] **Bouncy ball**
-[x] **Lags**
-[x] **Prop Madness**: Like good old E2 chip! spawns props around you and makes it fly around you
-[x] **Inverted head**
-[x] **Tired**: Pulls the sight down
-[ ] **Drunk movement**
-[ ] **Vampirism**
-[ ] **Artillery**: Shoots rockets towards nearby players
-[x] **Wallhack**
-[ ] **Aimbot**
-[x] **Strip weapons**
-[ ] **On ice**
-[ ] **Scary**: Blind players when they look at you
-[ ] **Car crash**
-[ ] **Zombie**
-[ ] **Meteorite**
-[ ] **Lazer eyes**: Shoot lazers from you eyes
-[ ] **No spread**
+- [x] **God mode**
+- [ ] **Toxic**: Deal 1000 damage to nearby players
+- [ ] **Overheal**: Sets your hp to 1000 and slowly reduces it back to normal
+- [x] **Fast speed**
+- [x] **Noclip**
+- [x] **Low gravity**
+- [x] **Invisibility**
+- [x] **Increased damage**
+- [x] **Infinity ammo**
+- [x] **Freezing bullets**: Freezes target for a second
+- [x] **Drug bullets**
+- [ ] **Taunt bullets**: Forces player to dance
+- [x] **Dissolving bullets**
+- [ ] **Homing projectiles**
+- [x] **Instant death**
+- [ ] **Explosion**: Deals 500 damage around you
+- [ ] **Firework**: Turns you into a firework
+- [x] **Disslove**: Dissolves you
+- [x] **Snail**: Slows you
+- [x] **Freeze**
+- [ ] **Time bomb**: Turns you into a time bomb
+- [ ] **Ignition**
+- [x] **1 HP**
+- [x] **Drunk**
+- [ ] **Blindness**
+- [x] **Let's build**: Strips all your weapons and gives you physgun and toolgun
+- [x] **Beacon**
+- [ ] **Uncontrollable dance**
+- [ ] **Mingebags everywhere**: Clientside change that turn every player into T-Pose Kleiner
+- [ ] **Earthquake**
+- [x] **Strange feeling**: FOV 179
+- [ ] **No survival skills**: Increases any input damage to you by 3
+- [ ] **Second life**
+- [ ] **Big head**
+- [ ] **Big model**
+- [ ] **Small model**
+- [x] **Force field**: Pushes players away from you
+- [x] **Strong gravity**
+- [x] **Propify**: Attaches you to a prop
+- [x] **Eye for an eye**: Mirrors any output damage to you
+- [ ] **Airstrike**: Launch a rocket to aim position every second
+- [x] **It's raining 'nades**: Spawn grenades every second above your head
+- [ ] **Explosive bullets**
+- [ ] **Fast hands**: Increases reload/shoot speed
+- [x] **The unique one**: Everyone can see you through walls
+- [x] **Double health**
+- [x] **Spaceman**: Deny the gravity!
+- [x] **Magnet**: Attract players towards you
+- [ ] **Timed napalm bomb**: Same as time bomb but ignites everyone nearby
+- [ ] **AR2 projectiles**: Shoot ar2 balls! One ball = one full clip of weapon
+- [x] **Strong recoil**
+- [ ] **Inverted movement**
+- [x] **Heavy legs**: Can't walk any stairs
+- [ ] **Bouncy ball**
+- [x] **Lags**
+- [x] **Prop Madness**: Like good old E2 chip! spawns props around you and makes it fly around you
+- [x] **Inverted head**
+- [x] **Tired**: Pulls the sight down
+- [ ] **Drunk movement**
+- [ ] **Vampirism**
+- [ ] **Artillery**: Shoots rockets towards nearby players
+- [x] **Wallhack**
+- [ ] **Aimbot**
+- [x] **Strip weapons**
+- [ ] **On ice**
+- [ ] **Scary**: Blind players when they look at you
+- [ ] **Car crash**
+- [ ] **Zombie**
+- [ ] **Meteorite**
+- [ ] **Lazer eyes**: Shoot lazers from you eyes
+- [ ] **No spread**
