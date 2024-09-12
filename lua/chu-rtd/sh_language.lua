@@ -5,6 +5,12 @@ x.Dependency("chu-rtd/effects")
 
 chuRtd.LanguageContext = chuRtd.LanguageContext or x.LanguageContext("chu-rtd")
 
+function chuRtd.LanguageContext:OnLanguageChanged()
+    if chuRtd.UlxRtdCommand then
+        chuRtd.UlxRtdCommand:help(self:Phrase("command-help"))
+    end
+end
+
 local ctx = chuRtd.LanguageContext
 
 ctx:DefineLanguagePhrase("rolled-effect")
@@ -13,6 +19,7 @@ ctx:DefineLanguagePhrase("seconds")
 ctx:DefineLanguagePhrase("effect-ended")
 ctx:DefineLanguagePhrase("died-with-active-effect")
 ctx:DefineLanguagePhrase("you-already-have-rtd")
+ctx:DefineLanguagePhrase("command-help")
 
 for _, effect in ipairs(chuRtd.Effects.Values) do
     local phrasePrefix = "effect." .. effect.Id .. "."

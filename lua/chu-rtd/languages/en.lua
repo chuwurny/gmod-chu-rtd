@@ -6,6 +6,7 @@ lang:Phrase("seconds", "sec.")
 lang:Phrase("effect-ended", "effect ended")
 lang:Phrase("died-with-active-effect", "died with active effect")
 lang:Phrase("you-already-have-rtd", "You already have effect")
+lang:Phrase("command-help", "Roll random effect")
 
 lang:Phrase("effect.godmode.name", "Godmode")
 lang:Phrase("effect.overheal.name", "Overheal")
