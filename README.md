@@ -28,7 +28,7 @@ experience!
 - [ ] **Ignition**
 - [x] **1 HP**
 - [x] **Drunk**
-- [ ] **Blindness**
+- [x] **Blindness**
 - [x] **Let's build**: Strips all your weapons and gives you physgun and toolgun
 - [x] **Beacon**
 - [ ] **Uncontrollable dance**
