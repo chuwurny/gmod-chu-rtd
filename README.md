@@ -71,7 +71,7 @@ experience!
 - [ ] **On ice**
 - [ ] **Scary**: Blind players when they look at you
 - [ ] **Car crash**
-- [ ] **Zombie**
+- [x] **Zombie**
 - [ ] **Meteorite**
 - [ ] **Lazer eyes**: Shoot lazers from you eyes
 - [ ] **No spread**
