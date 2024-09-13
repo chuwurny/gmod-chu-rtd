@@ -19,7 +19,7 @@ experience!
 - [x] **Dissolving bullets**
 - [x] **Homing projectiles**
 - [x] **Instant death**
-- [ ] **Explosion**: Deals 500 damage around you
+- [x] **Explosion**: Deals 500 damage around you
 - [ ] **Firework**: Turns you into a firework
 - [x] **Disslove**: Dissolves you
 - [x] **Snail**: Slows you
