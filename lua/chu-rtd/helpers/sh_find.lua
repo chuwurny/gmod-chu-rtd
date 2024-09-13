@@ -6,7 +6,7 @@ function chuRtd.Helpers.FindNearestPlayer(origin, filter, maxDistance)
             filter = function(ent)
                 return not filterSet:Has(ent)
             end
-        elseif isplayer(filter) then
+        elseif isentity(filter) then
             local filterEnt = filter
 
             filter = function(ent)
