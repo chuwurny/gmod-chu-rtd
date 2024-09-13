@@ -13,8 +13,7 @@ local MODELS = {
     "models/props_wasteland/rockgranite02c.mdl",
 }
 
-local PI2 = math.pi * 2
-local PI4 = math.pi * 4
+local TAU2 = math.tau * 2
 
 local AMOUNT = 8
 local RADIUS = 400
@@ -26,7 +25,7 @@ function effect:OnRolled(ply, data)
     local origin = ply:GetShootPos()
     origin.z = origin.z + 10
 
-    local step = PI2 / AMOUNT
+    local step = math.tau / AMOUNT
 
     for i = 1, AMOUNT do
         local ent = ents.Create("prop_physics")
@@ -63,8 +62,8 @@ function effect:OnTick(ply, data)
     local origin = ply:GetShootPos()
     origin.z = origin.z + HEIGHT
 
-    local step = PI2 / #data.Props
-    local spin = (CurTime() * 2) % PI4
+    local step = math.tau / #data.Props
+    local spin = (CurTime() * 2) % TAU2
 
     for i, prop in ipairs(data.Props) do
         if IsValid(prop) then
