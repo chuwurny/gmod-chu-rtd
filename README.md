@@ -17,7 +17,7 @@ experience!
 - [x] **Drug bullets**
 - [ ] **Taunt bullets**: Forces player to dance
 - [x] **Dissolving bullets**
-- [ ] **Homing projectiles**
+- [x] **Homing projectiles**
 - [x] **Instant death**
 - [ ] **Explosion**: Deals 500 damage around you
 - [ ] **Firework**: Turns you into a firework
