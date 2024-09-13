@@ -43,15 +43,19 @@ function EFFECT:OnEnded(ply, data)
     -- for override
 end
 
-function EFFECT:Hook(event, callback)
+function EFFECT:Hook(event, callback, priority)
     hook.Add(event, "rtd effect " .. self.Id, function(...)
-        callback(...)
-    end)
+        local r1, r2, r3, r4, r5, r6, r7, r8 = callback(...)
+
+        if r1 ~= nil then
+            return r1, r2, r3, r4, r5, r6, r7, r8
+        end
+    end, priority)
 end
 
 if CLIENT then
-    function EFFECT:HookLocalPlayer(event, callback)
-        hook.Add(event, "rtd effect " .. self.Id, function(...)
+    function EFFECT:HookLocalPlayer(event, callback, priority)
+        self:Hook(event, function(...)
             local lp = LocalPlayer()
 
             if not IsValid(lp) then return end
@@ -60,8 +64,8 @@ if CLIENT then
 
             local data = lp.RtdData
 
-            callback(lp, data, ...)
-        end)
+            return callback(lp, data, ...)
+        end, priority)
     end
 end
 
