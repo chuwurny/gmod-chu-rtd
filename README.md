@@ -31,7 +31,7 @@ experience!
 - [x] **Blindness**
 - [x] **Let's build**: Strips all your weapons and gives you physgun and toolgun
 - [x] **Beacon**
-- [ ] **Uncontrollable dance**
+- [x] **Uncontrollable dance**
 - [ ] **Mingebags everywhere**: Clientside change that turn every player into T-Pose Kleiner
 - [ ] **Earthquake**
 - [x] **Strange feeling**: FOV 179
