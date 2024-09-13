@@ -64,7 +64,7 @@ experience!
 - [x] **Tired**: Pulls the sight down
 - [ ] **Drunk movement**
 - [ ] **Vampirism**
-- [ ] **Artillery**: Shoots rockets towards nearby players
+- [x] **Artillery**: Shoots rockets towards nearby players
 - [x] **Wallhack**
 - [ ] **Aimbot**
 - [x] **Strip weapons**
