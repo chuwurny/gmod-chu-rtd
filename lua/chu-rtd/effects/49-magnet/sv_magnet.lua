@@ -6,7 +6,10 @@ function effect:OnTick(activator)
     local dest = activator:GetPos()
 
     for _, ply in player.Iterator() do
-        if ply ~= activator then
+        if
+            ply ~= activator and
+            chuRtd.Helpers.ShouldTarget(activator, ply)
+        then
             local src = ply:GetPos()
             local dist = src:DistToSqr(dest)
 

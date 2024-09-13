@@ -19,7 +19,7 @@ function effect:HandleProjectileSameAs(className, deriveClassName)
 end
 
 function effect:OnTick(ply)
-    local target = chuRtd.Helpers.FindNearestPlayer(ply:GetPos(), ply, MAX_DISTANCE)
+    local target = chuRtd.Helpers.FindNearestTarget(ply, MAX_DISTANCE)
 
     if not IsValid(target) then return end
 
