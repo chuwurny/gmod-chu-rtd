@@ -15,7 +15,7 @@ experience!
 - [x] **Infinity ammo**
 - [x] **Freezing bullets**: Freezes target for a second
 - [x] **Drug bullets**
-- [ ] **Taunt bullets**: Forces player to dance
+- [x] **Taunt bullets**: Forces player to dance
 - [x] **Dissolving bullets**
 - [x] **Homing projectiles**
 - [x] **Instant death**
