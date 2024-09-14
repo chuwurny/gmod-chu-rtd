@@ -70,7 +70,7 @@ experience!
 - [x] **Strip weapons**
 - [ ] **On ice**
 - [ ] **Scary**: Blind players when they look at you
-- [ ] **Car crash**
+- [x] **Car crash**
 - [x] **Zombie**
 - [ ] **Meteorite**
 - [ ] **Lazer eyes**: Shoot lazers from you eyes
