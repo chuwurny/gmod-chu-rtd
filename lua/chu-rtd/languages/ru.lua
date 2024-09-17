@@ -23,6 +23,7 @@ lang:Phrase("effect.dissolving-bullets.name", "Расщипляющие пули
 lang:Phrase("effect.homing-projectiles.name", "Самонаводящиеся снаряды")
 lang:Phrase("effect.death.name", "Смерть")
 lang:Phrase("effect.explosion.name", "Взрыв")
+lang:Phrase("effect.firework.name", "Фейерверк")
 lang:Phrase("effect.dissolve.name", "Расщипление")
 lang:Phrase("effect.snail.name", "Замедление")
 lang:Phrase("effect.freeze.name", "Заморозка")
