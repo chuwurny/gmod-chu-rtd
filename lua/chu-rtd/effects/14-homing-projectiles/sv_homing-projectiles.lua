@@ -50,9 +50,9 @@ function effect:AngleProjectileHandler(projectile, destPos)
     projectile:SetAngles(destAng)
 end
 
-function effect:VelocityAngleProjectileHandler(projectile, destPos, speed)
-    self:VelocityProjectile(projectile, destPos, speed)
-    self:AngleProjectile(projectile, destPos)
+function effect:VelocityAngleProjectileHandler(projectile, destPos, speed, inertiaDenyAmount)
+    self:VelocityProjectileHandler(projectile, destPos, speed, inertiaDenyAmount)
+    self:AngleProjectileHandler(projectile, destPos)
 end
 
 function effect:PhysVelocityProjectileHandler(projectile, destPos, speed)
