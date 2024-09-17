@@ -24,7 +24,7 @@ experience!
 - [x] **Disslove**: Dissolves you
 - [x] **Snail**: Slows you
 - [x] **Freeze**
-- [ ] **Time bomb**: Turns you into a time bomb
+- [x] **Time bomb**: Turns you into a time bomb
 - [ ] **Ignition**
 - [x] **1 HP**
 - [x] **Drunk**

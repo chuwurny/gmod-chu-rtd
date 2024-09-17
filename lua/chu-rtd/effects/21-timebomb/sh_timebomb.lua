@@ -1,0 +1,1 @@
+chuRtd.Effect("timebomb", chuRtd.COLOR_EVIL)
