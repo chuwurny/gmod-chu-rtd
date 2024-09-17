@@ -51,7 +51,7 @@ function effect:OnRolled(ply, data)
     end
 
     -- Print some help
-    ply:PrettyPrintLang(x.ColorGreen, { self.LanguagePhrases[1] })
+    ply:PrettyPrintLang("chu-rtd", x.ColorGreen, { self.LanguagePhrases[1] })
 end
 
 function effect:OnTick(ply, data)
