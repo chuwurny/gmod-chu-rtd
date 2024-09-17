@@ -38,10 +38,12 @@ function effect:OnTick(ply)
     end
 end
 
-function effect:VelocityProjectileHandler(projectile, destPos, speed)
+function effect:VelocityProjectileHandler(projectile, destPos, speed, inertiaDenyAmount)
+    inertiaDenyAmount = inertiaDenyAmount or 0
+
     local dir = (destPos - projectile:GetPos()):GetNormalized()
 
-    projectile:SetVelocity(dir * speed)
+    projectile:SetVelocity(-(projectile:GetVelocity() * inertiaDenyAmount) + dir * speed)
 end
 
 function effect:AngleProjectileHandler(projectile, destPos)
@@ -95,5 +97,5 @@ effect:HandleProjectile(
 
 effect:HandleProjectile(
     "rpg_missile",
-    x.Bind(effect.VelocityAngleProjectileHandler, x._1, x._2, x._3, 100)
+    x.Bind(effect.VelocityAngleProjectileHandler, x._1, x._2, x._3, 1000, 1)
 )
