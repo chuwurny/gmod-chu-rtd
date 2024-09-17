@@ -25,7 +25,7 @@ experience!
 - [x] **Snail**: Slows you
 - [x] **Freeze**
 - [x] **Time bomb**: Turns you into a time bomb
-- [ ] **Ignition**
+- [x] **Ignition**
 - [x] **1 HP**
 - [x] **Drunk**
 - [x] **Blindness**
