@@ -47,6 +47,7 @@ lang:Phrase("effect.lets-build.im-gonna-build-huge-d-i-mean-house",
 lang:Phrase("effect.beacon.name", "Beacon")
 lang:Phrase("effect.force-taunt.name", "Uncontrollable dance")
 lang:Phrase("effect.179fov.name", "Strange feeling")
+lang:Phrase("effect.increased-damage-input.name", "Lack of survivability")
 lang:Phrase("effect.force-field.name", "Force field")
 lang:Phrase("effect.strong-gravity.name", "Strong gravity")
 lang:Phrase("effect.inside-prop.name", "I Am Prop")

@@ -1,0 +1,1 @@
+chuRtd.Effect("increased-damage-input", chuRtd.COLOR_EVIL)
