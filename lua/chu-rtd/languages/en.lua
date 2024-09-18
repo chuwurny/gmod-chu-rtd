@@ -48,6 +48,11 @@ lang:Phrase("effect.beacon.name", "Beacon")
 lang:Phrase("effect.force-taunt.name", "Uncontrollable dance")
 lang:Phrase("effect.179fov.name", "Strange feeling")
 lang:Phrase("effect.increased-damage-input.name", "Lack of survivability")
+
+lang:Phrase("effect.second-life.name", "Second life")
+lang:Phrase("effect.second-life.revives", "revives...")
+lang:Phrase("effect.second-life.you-got-godmode-for-x-seconds", "You got godmode for {1} seconds")
+
 lang:Phrase("effect.force-field.name", "Force field")
 lang:Phrase("effect.strong-gravity.name", "Strong gravity")
 lang:Phrase("effect.inside-prop.name", "I Am Prop")

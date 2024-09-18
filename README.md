@@ -36,7 +36,7 @@ experience!
 - [ ] **Earthquake**
 - [x] **Strange feeling**: FOV 179
 - [x] **Lack of survivability**: Increases any input damage to you by 3
-- [ ] **Second life**
+- [x] **Second life**
 - [ ] **Big head**
 - [ ] **Big model**
 - [ ] **Small model**
