@@ -63,7 +63,7 @@ experience!
 - [x] **Inverted head**
 - [x] **Tired**: Pulls the sight down
 - [ ] **Drunk movement**
-- [ ] **Vampirism**
+- [x] **Vampirism**
 - [x] **Artillery**: Shoots rockets towards nearby players
 - [x] **Wallhack**
 - [ ] **Aimbot**
