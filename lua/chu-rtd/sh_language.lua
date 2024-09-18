@@ -29,10 +29,10 @@ for _, effect in ipairs(chuRtd.Effects.Values) do
     if not effect._LanguagePhrasesAltered then
         effect._LanguagePhrasesAltered = true
 
-        for i, phrase in ipairs(effect.LanguagePhrases) do
+        for k, phrase in pairs(effect.LanguagePhrases) do
             phrase = phrasePrefix .. phrase
 
-            effect.LanguagePhrases[i] = phrase
+            effect.LanguagePhrases[k] = phrase
 
             ctx:DefineLanguagePhrase(phrase)
         end
