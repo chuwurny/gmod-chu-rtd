@@ -57,7 +57,7 @@ experience!
 - [x] **Strong recoil**
 - [ ] **Inverted movement**
 - [x] **Heavy legs**: Can't walk any stairs
-- [ ] **Bouncy ball**
+- [x] **Bouncy ball**
 - [x] **Lags**
 - [x] **Prop Madness**: Like good old E2 chip! spawns props around you and makes it fly around you
 - [x] **Inverted head**

@@ -64,6 +64,7 @@ lang:Phrase("effect.no-gravity.name", "Космонавт")
 lang:Phrase("effect.magnet.name", "Магнит")
 lang:Phrase("effect.strong-recoil.name", "Сильная отдача")
 lang:Phrase("effect.no-step.name", "НеМогуПоднятьНогу")
+lang:Phrase("effect.bouncy.name", "Попрыгунчик")
 lang:Phrase("effect.lags.name", "Л-лаги")
 
 lang:Phrase("effect.prop-madness.name", "Prop madness")

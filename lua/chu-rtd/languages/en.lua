@@ -64,6 +64,7 @@ lang:Phrase("effect.no-gravity.name", "Cosmonaut")
 lang:Phrase("effect.magnet.name", "Magnet")
 lang:Phrase("effect.strong-recoil.name", "Strong recoil")
 lang:Phrase("effect.no-step.name", "Incline problems")
+lang:Phrase("effect.bouncy.name", "Bouncy ball")
 lang:Phrase("effect.lags.name", "L-lags")
 
 lang:Phrase("effect.prop-madness.name", "Prop madness")
