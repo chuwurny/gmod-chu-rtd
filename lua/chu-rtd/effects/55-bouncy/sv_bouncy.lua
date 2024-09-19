@@ -7,6 +7,11 @@ function effect:Bounce(ply, direction)
 end
 
 function effect:OnTick(ply, data)
+    -- TODO: recode this crap.
+    --
+    -- This code is disgusting because i cannot add PhysicsCollide callback to
+    -- player nor add ShouldCollide hook and watch player.
+
     local function trace(dir)
         local tr = util.TraceLine({
             start = ply:GetPos(),
