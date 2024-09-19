@@ -62,7 +62,7 @@ experience!
 - [x] **Prop Madness**: Like good old E2 chip! spawns props around you and makes it fly around you
 - [x] **Inverted head**
 - [x] **Tired**: Pulls the sight down
-- [ ] **Drunk movement**
+- [x] **Drunk movement**
 - [x] **Vampirism**
 - [x] **Artillery**: Shoots rockets towards nearby players
 - [x] **Wallhack**

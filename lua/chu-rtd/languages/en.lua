@@ -73,6 +73,7 @@ lang:Phrase("effect.prop-madness.crouch-to-fly-props-at-aimpos",
 
 lang:Phrase("effect.head-roll.name", "Head roll")
 lang:Phrase("effect.dizzy.name", "Dizzy")
+lang:Phrase("effect.drunk-movement.name", "Drunk movement")
 lang:Phrase("effect.vampirism.name", "Vampirism")
 lang:Phrase("effect.artillery.name", "Artillery")
 lang:Phrase("effect.wallhack.name", "Wallhack")
