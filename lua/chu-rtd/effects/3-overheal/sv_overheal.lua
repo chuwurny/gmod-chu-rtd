@@ -23,11 +23,7 @@ function effect:OnTick(ply, data)
         )
     )
 
-    print(data.EndTime - CurTime())
-
     local subtractHealth = healthShouldBeLost - data.HealthLerp
-
-    print(ply, healthShouldBeLost)
 
     data.HealthLerp = healthShouldBeLost
 
