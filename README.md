@@ -73,5 +73,5 @@ experience!
 - [x] **Car crash**
 - [x] **Zombie**
 - [ ] **Meteorite**
-- [ ] **Lazer eyes**: Shoot lazers from you eyes
+- [x] **Lazer eyes**: Shoot lazers from you eyes
 - [ ] **No spread**
