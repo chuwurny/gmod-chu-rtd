@@ -15,7 +15,7 @@ effect:HookLocalPlayer("CreateMove", function(_, lp, _, cmd)
 
     cmd:SetForwardMove(cl_forwardspeed:GetFloat())
 
-    local target = chuRtd.Helpers.FindNearestTarget(lp, MAX_DISTANCE)
+    local target = chuRtd.Helpers.FindNearestTarget(lp, nil, MAX_DISTANCE)
 
     if IsValid(target) then
         local targetAngle = (target:GetShootPos() - lp:GetShootPos()):Angle()
