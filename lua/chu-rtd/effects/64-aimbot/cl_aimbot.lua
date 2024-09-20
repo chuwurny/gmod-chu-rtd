@@ -12,16 +12,32 @@ function effect:CalculcateAimPos(target)
     return target:GetShootPos()
 end
 
+function effect:CheckIfVisible(attacker, target, customPos)
+    customPos = customPos or (target:GetPos() + Vector(0, 0, target:OBBMaxs().z / 2))
+
+    local tr = util.TraceLine({
+        start = attacker:GetShootPos(),
+        endpos = customPos,
+        filter = attacker,
+    })
+
+    return tr.Entity == target
+end
+
 effect:HookLocalPlayer("CreateMove", function(self, lp, _, cmd)
-    local target = chuRtd.Helpers.FindNearestTarget(lp)
+    local aimPos
+
+    local target = chuRtd.Helpers.FindNearestTarget(lp, function(target)
+        aimPos = self:CalculcateAimPos(target)
+
+        return self:CheckIfVisible(lp, target, aimPos)
+    end)
 
     if not IsValid(target) then return end
 
     -- TODO: seems like rubat broke prediction completely (at least on loopback
     -- server it aims on serverside position rather than predicted interpolated
     -- prettiest clientside position) but it somehow works
-
-    local aimPos = self:CalculcateAimPos(target)
 
     cmd:SetViewAngles((aimPos - lp:GetShootPos()):Angle())
 end)
