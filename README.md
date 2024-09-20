@@ -52,7 +52,7 @@ experience!
 - [x] **Double health**
 - [x] **Spaceman**: Deny the gravity!
 - [x] **Magnet**: Attract players towards you
-- [ ] **Timed napalm bomb**: Same as time bomb but ignites everyone nearby
+- [x] **Timed napalm bomb**: Same as time bomb but ignites everyone nearby
 - [ ] **AR2 projectiles**: Shoot ar2 balls! One ball = one full clip of weapon
 - [x] **Strong recoil**
 - [ ] **Inverted movement**
