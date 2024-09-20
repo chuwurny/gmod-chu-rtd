@@ -43,7 +43,7 @@ function effect:OnTick(ply, data)
     end
 end
 
-effect:Hook("EntityTakeDamage", function(ply, dmg)
+hook.Add("EntityTakeDamage", "rtd bouncy", function(ply, dmg)
     if not ply:IsPlayer() then return end
     if not dmg:IsFallDamage() then return end
     if ply:GetRtdEffect() ~= effect then return end

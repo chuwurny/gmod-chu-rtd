@@ -68,13 +68,13 @@ function effect:OnEnded(ply)
     end)
 end
 
-effect:Hook("PlayerDeathThink", function(ply)
+hook.Add("PlayerDeathThink", "rtd second life", function(ply)
     if ply.rtdSecondLifeStage == effect.STAGE_RESPAWN then
         return true
     end
 end, HOOK_MONITOR_LOW)
 
-effect:Hook("PostPlayerDeath", function(ply)
+hook.Add("PostPlayerDeath", "rtd second life", function(ply)
     if ply.rtdSecondLifeStage == effect.STAGE_REVIVE then
         timer.Remove("rtd second life " .. ply:UserID())
 

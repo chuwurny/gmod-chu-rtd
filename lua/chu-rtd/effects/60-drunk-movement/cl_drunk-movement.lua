@@ -10,7 +10,7 @@ function effect:OnRolled(_, data)
     self:RandomizeMovement(data)
 end
 
-effect:HookLocalPlayer("CreateMove", function(_, data, cmd)
+effect:HookLocalPlayer("CreateMove", function(_, _, data, cmd)
     if x.TimeoutAction("rtd drunk movement randomize", effect.RANDOMIZE_INTERVAL) then
         effect:RandomizeMovement(data)
     end

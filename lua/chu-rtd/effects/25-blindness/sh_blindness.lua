@@ -7,7 +7,7 @@ if CLIENT then
         surface.PlaySound("citadel.mo_sorrygordon")
     end
 
-    effect:HookLocalPlayer("HUDPaint", function(lp)
+    effect:HookLocalPlayer("HUDPaint", function(_, _, data)
         local fadeEndTime = lp:GetRtdStartTime() + 1
         local fadeDelta = math.min(1, 1 - ((fadeEndTime - CurTime()) / FADE_TIME))
 

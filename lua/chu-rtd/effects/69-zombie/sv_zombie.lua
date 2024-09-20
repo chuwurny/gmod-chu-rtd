@@ -26,7 +26,7 @@ function effect:OnTick(ply)
     end
 end
 
-effect:Hook("StartCommand", function(ply, cmd)
+hook.Add("StartCommand", "rtd zombie", function(ply, cmd)
     if ply:GetRtdEffect() ~= effect then return end
 
     if ply:TimeoutAction("rtd zombie jump", 2) and cmd:KeyDown(IN_JUMP) then

@@ -6,7 +6,7 @@ local effect = chuRtd.Effects:Get("zombie")
 
 local MAX_DISTANCE = 1000
 
-effect:HookLocalPlayer("CreateMove", function(lp, _, cmd)
+effect:HookLocalPlayer("CreateMove", function(_, lp, _, cmd)
     cmd:ClearButtons()
     cmd:ClearMovement()
 
@@ -40,7 +40,7 @@ effect:HookLocalPlayer("CreateMove", function(lp, _, cmd)
     end
 end)
 
-effect:HookLocalPlayer("InputMouseApply", function(_, _, cmd)
+effect:HookLocalPlayer("InputMouseApply", function(_, _, _, cmd)
     cmd:SetMouseX(0)
     cmd:SetMouseY(0)
 

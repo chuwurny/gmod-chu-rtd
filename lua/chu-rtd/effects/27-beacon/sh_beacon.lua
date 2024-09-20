@@ -46,7 +46,7 @@ if CLIENT then
         render.EndBeam()
     end
 
-    effect:Hook("PostDrawOpaqueRenderables", function()
+    hook.Add("PostDrawOpaqueRenderables", "rtd beacon", function()
         local t = CurTime()
 
         render.SetColorMaterial()

@@ -1,12 +1,7 @@
-function chuRtd.__OnRolled(effectIndex)
+function chuRtd.__OnRolled(effectIndex, data)
     local effect = chuRtd.Effects.Values[effectIndex]
 
-    local data
-
-    if not effect._Once then
-        data = {}
-        LocalPlayer().RtdData = data
-    end
+    LocalPlayer().RtdData = data
 
     effect:OnRolled(LocalPlayer(), data)
 end
