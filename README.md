@@ -66,7 +66,7 @@ experience!
 - [x] **Vampirism**
 - [x] **Artillery**: Shoots rockets towards nearby players
 - [x] **Wallhack**
-- [ ] **Aimbot**
+- [x] **Aimbot**
 - [x] **Strip weapons**
 - [ ] **On ice**
 - [ ] **Scary**: Blind players when they look at you
