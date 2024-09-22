@@ -46,6 +46,7 @@ lang:Phrase("effect.lets-build.im-gonna-build-huge-d-i-mean-house",
 
 lang:Phrase("effect.beacon.name", "Beacon")
 lang:Phrase("effect.force-taunt.name", "Uncontrollable dance")
+lang:Phrase("effect.damage-distribution.name", "Damage distribution")
 lang:Phrase("effect.179fov.name", "Strange feeling")
 lang:Phrase("effect.increased-damage-input.name", "Lack of survivability")
 

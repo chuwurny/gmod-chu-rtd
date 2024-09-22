@@ -32,7 +32,7 @@ experience!
 - [x] **Let's build**: Strips all your weapons and gives you physgun and toolgun
 - [x] **Beacon**
 - [x] **Uncontrollable dance**
-- [ ] **Mingebags everywhere**: Clientside change that turn every player into T-Pose Kleiner
+- [x] **Damage distribution**: Distributes input damage among all players
 - [ ] **Earthquake**
 - [x] **Strange feeling**: FOV 179
 - [x] **Lack of survivability**: Increases any input damage to you by 3
