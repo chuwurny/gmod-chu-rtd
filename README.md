@@ -47,7 +47,7 @@ experience!
 - [x] **Airstrike**: Launch a rocket to aim position every second
 - [x] **It's raining 'nades**: Spawn grenades every second above your head
 - [ ] **Explosive bullets**
-- [ ] **Fast hands**: Increases reload/shoot speed
+- [x] **Fast hands**: Increases reload/shoot speed
 - [x] **The unique one**: Everyone can see you through walls
 - [x] **Double health**
 - [x] **Spaceman**: Deny the gravity!
