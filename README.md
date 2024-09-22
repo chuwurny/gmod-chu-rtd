@@ -44,7 +44,7 @@ experience!
 - [x] **Strong gravity**
 - [x] **Propify**: Attaches you to a prop
 - [x] **Eye for an eye**: Mirrors any output damage to you
-- [ ] **Airstrike**: Launch a rocket to aim position every second
+- [x] **Airstrike**: Launch a rocket to aim position every second
 - [x] **It's raining 'nades**: Spawn grenades every second above your head
 - [ ] **Explosive bullets**
 - [ ] **Fast hands**: Increases reload/shoot speed
