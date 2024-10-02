@@ -1,5 +1,10 @@
 local effect = chuRtd.Effects:Get("force-taunt")
 
+function effect:CanRoll()
+    -- FIXME: FCVAR_SERVER_CAN_EXECUTE prevented server running command: act (x6)
+    return false
+end
+
 local TAUNTS = {
     "dance",
     "muscle",
