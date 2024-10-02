@@ -51,7 +51,7 @@ lang:Phrase("effect.179fov.name", "Странное ощущение")
 lang:Phrase("effect.increased-damage-input.name", "Плохая выживаемость")
 
 lang:Phrase("effect.second-life.name", "Вторая жизнь")
-lang:Phrase("effect.second-life.revives", "возраждается...")
+lang:Phrase("effect.second-life.revives", "возрождается...")
 lang:Phrase("effect.second-life.you-got-godmode-for-x-seconds", "Ты получил бессмертие на {1} секунд")
 
 lang:Phrase("effect.force-field.name", "Отталкивающее поле")
