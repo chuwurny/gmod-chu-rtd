@@ -1,0 +1,40 @@
+local effect = chuRtd.Effects:Get("scary")
+
+effect.MIN_ANGLE_TO_TRIGGER = 3.00
+
+effect.SCARE_DURATION = 0.5
+
+effect.GASP_SOUNDS = {
+    "citadel.al_gasp01",
+}
+
+function effect:Scare(target, dirToAvoid)
+    target:RPC(
+        "chuRtd.__Scare",
+        dirToAvoid,
+        CurTime() + self.SCARE_DURATION,
+        1
+    )
+end
+
+function effect:OnTick(rtdPly)
+    for _, ply in player.Iterator() do
+        if ply ~= rtdPly then
+            local tr = ply:GetEyeTraceNoCursor()
+
+            local dir = (ply:GetShootPos() - rtdPly:GetShootPos()):GetNormalized()
+
+            if tr.Entity ~= rtdPly then
+                local lookDir = tr.Normal
+                local dotAmount = lookDir:Dot(dir)
+                local lookAngle = math.acos(dotAmount)
+
+                if lookAngle > self.MIN_ANGLE_TO_TRIGGER then
+                    self:Scare(ply, dir)
+                end
+            else
+                self:Scare(ply, dir)
+            end
+        end
+    end
+end

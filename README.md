@@ -69,7 +69,7 @@ experience!
 - [x] **Aimbot**
 - [x] **Strip weapons**
 - [ ] **On ice**
-- [ ] **Scary**: Blind players when they look at you
+- [x] **Scary**: Blind players when they look at you
 - [x] **Car crash**
 - [x] **Zombie**
 - [ ] **Meteorite**
