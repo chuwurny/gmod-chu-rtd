@@ -15,6 +15,8 @@ function effect:Scare(target, dirToAvoid)
         CurTime() + self.SCARE_DURATION,
         1
     )
+
+    target:EmitSound(self.GASP_SOUNDS[math.random(#self.GASP_SOUNDS)])
 end
 
 function effect:OnTick(rtdPly)

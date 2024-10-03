@@ -16,7 +16,6 @@ function effect:Scare(cmd, dirToAvoid, endTime, multiplier)
 
     cmd:SetViewAngles(cmd:GetViewAngles() + (deltaAngles * multiplier))
 
-    surface.PlaySound(self.GASP_SOUNDS[math.random(#self.GASP_SOUNDS)])
     surface.PlaySound(self.SCARY_SOUNDS[math.random(#self.SCARY_SOUNDS)])
 
     SCARE_UNTIL_TIME = endTime
