@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("wallhack", chuRtd.COLOR_GOOD)
+local effect = chuRtd.Effect("wallhack", chuRtd.TYPE_GOOD)
 
 if CLIENT then
     effect:HookLocalPlayer("PreDrawHalos", function()

@@ -1,1 +1,1 @@
-chuRtd.Effect("scary", chuRtd.COLOR_GOOD)
+chuRtd.Effect("scary", chuRtd.TYPE_GOOD)

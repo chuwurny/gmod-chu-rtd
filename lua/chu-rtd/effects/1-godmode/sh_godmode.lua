@@ -1,1 +1,1 @@
-chuRtd.Effect("godmode", chuRtd.COLOR_GOOD)
+chuRtd.Effect("godmode", chuRtd.TYPE_GOOD)

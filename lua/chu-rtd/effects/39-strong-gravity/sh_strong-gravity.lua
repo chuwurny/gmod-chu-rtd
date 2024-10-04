@@ -1,1 +1,1 @@
-chuRtd.Effect("strong-gravity", chuRtd.COLOR_EVIL)
+chuRtd.Effect("strong-gravity", chuRtd.TYPE_EVIL)

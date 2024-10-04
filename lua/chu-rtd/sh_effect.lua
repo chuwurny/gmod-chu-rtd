@@ -1,3 +1,5 @@
+x.Dependency("chu-rtd", "sh_types.lua")
+
 chuRtd.EFFECT = chuRtd.EFFECT or {}
 
 local EFFECT = chuRtd.EFFECT
@@ -59,12 +61,12 @@ if CLIENT then
     end
 end
 
-function chuRtd.Effect(id, color)
+function chuRtd.Effect(id, type)
     local effect = setmetatable({
         Id = id,
 
         PhraseName = "effect." .. id .. ".name",
-        Color = color,
+        Type = type,
 
         LanguagePhrases = {},
         _LanguagePhrasesAltered = false,

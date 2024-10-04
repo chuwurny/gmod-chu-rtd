@@ -1,1 +1,1 @@
-chuRtd.Effect("taunt-bullets", chuRtd.COLOR_GOOD)
+chuRtd.Effect("taunt-bullets", chuRtd.TYPE_GOOD)

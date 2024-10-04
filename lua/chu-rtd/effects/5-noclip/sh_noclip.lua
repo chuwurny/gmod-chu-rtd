@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("noclip", chuRtd.COLOR_GOOD)
+local effect = chuRtd.Effect("noclip", chuRtd.TYPE_GOOD)
 
 hook.Add("PlayerNoclip", "rtd noclip", function(ply, state)
     if not ply.RtdData then return end

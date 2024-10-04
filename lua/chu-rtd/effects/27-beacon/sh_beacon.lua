@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("beacon", chuRtd.COLOR_EVIL)
+local effect = chuRtd.Effect("beacon", chuRtd.TYPE_EVIL)
 
 if CLIENT then
     local SEGMENTS = 18

@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("head-roll", chuRtd.COLOR_EVIL)
+local effect = chuRtd.Effect("head-roll", chuRtd.TYPE_EVIL)
 
 if CLIENT then
     effect:HookLocalPlayer("CreateMove", function(_, _, _, cmd)

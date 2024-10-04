@@ -1,1 +1,1 @@
-chuRtd.Effect("magnet", chuRtd.COLOR_NEUTRAL)
+chuRtd.Effect("magnet", chuRtd.TYPE_NEUTRAL)

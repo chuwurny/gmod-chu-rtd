@@ -1,1 +1,1 @@
-chuRtd.Effect("strong-recoil", chuRtd.COLOR_EVIL)
+chuRtd.Effect("strong-recoil", chuRtd.TYPE_EVIL)

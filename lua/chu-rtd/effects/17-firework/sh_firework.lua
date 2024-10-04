@@ -1,1 +1,1 @@
-chuRtd.Effect("firework", chuRtd.COLOR_EVIL):Once()
+chuRtd.Effect("firework", chuRtd.TYPE_EVIL):Once()

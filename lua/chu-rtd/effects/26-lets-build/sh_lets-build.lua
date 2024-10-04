@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("lets-build", chuRtd.COLOR_NEUTRAL):Once()
+local effect = chuRtd.Effect("lets-build", chuRtd.TYPE_NEUTRAL):Once()
 
 effect.LanguagePhrases = {
     "oh-i-love-building",

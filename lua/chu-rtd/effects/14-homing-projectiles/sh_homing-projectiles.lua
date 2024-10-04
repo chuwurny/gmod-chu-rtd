@@ -1,1 +1,1 @@
-chuRtd.Effect("homing-projectiles", chuRtd.COLOR_GOOD)
+chuRtd.Effect("homing-projectiles", chuRtd.TYPE_GOOD)

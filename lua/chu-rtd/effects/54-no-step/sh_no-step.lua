@@ -1,1 +1,1 @@
-chuRtd.Effect("no-step", chuRtd.COLOR_EVIL)
+chuRtd.Effect("no-step", chuRtd.TYPE_EVIL)

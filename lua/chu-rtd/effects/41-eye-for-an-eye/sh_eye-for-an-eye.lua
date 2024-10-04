@@ -1,1 +1,1 @@
-chuRtd.Effect("eye-for-an-eye", chuRtd.COLOR_EVIL)
+chuRtd.Effect("eye-for-an-eye", chuRtd.TYPE_EVIL)

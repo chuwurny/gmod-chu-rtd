@@ -1,1 +1,1 @@
-chuRtd.Effect("snail", chuRtd.COLOR_EVIL)
+chuRtd.Effect("snail", chuRtd.TYPE_EVIL)

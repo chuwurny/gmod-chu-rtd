@@ -1,1 +1,1 @@
-chuRtd.Effect("vampirism", chuRtd.COLOR_GOOD)
+chuRtd.Effect("vampirism", chuRtd.TYPE_GOOD)

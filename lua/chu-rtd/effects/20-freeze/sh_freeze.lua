@@ -1,1 +1,1 @@
-chuRtd.Effect("freeze", chuRtd.COLOR_EVIL)
+chuRtd.Effect("freeze", chuRtd.TYPE_EVIL)

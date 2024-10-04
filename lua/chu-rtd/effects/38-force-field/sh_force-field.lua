@@ -1,1 +1,1 @@
-chuRtd.Effect("force-field", chuRtd.COLOR_NEUTRAL)
+chuRtd.Effect("force-field", chuRtd.TYPE_NEUTRAL)

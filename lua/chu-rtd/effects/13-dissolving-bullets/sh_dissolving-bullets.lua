@@ -1,1 +1,1 @@
-chuRtd.Effect("dissolving-bullets", chuRtd.COLOR_GOOD)
+chuRtd.Effect("dissolving-bullets", chuRtd.TYPE_GOOD)

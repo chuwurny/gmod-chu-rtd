@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("fast-hands", chuRtd.COLOR_GOOD)
+local effect = chuRtd.Effect("fast-hands", chuRtd.TYPE_GOOD)
 
 function effect:OnRolled(ply, data)
     data.NextFireTime = 0

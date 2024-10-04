@@ -1,1 +1,1 @@
-chuRtd.Effect("damage-distribution", chuRtd.COLOR_GOOD)
+chuRtd.Effect("damage-distribution", chuRtd.TYPE_GOOD)

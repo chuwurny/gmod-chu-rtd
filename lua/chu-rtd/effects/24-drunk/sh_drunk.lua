@@ -1,1 +1,1 @@
-chuRtd.Effect("drunk", chuRtd.COLOR_EVIL)
+chuRtd.Effect("drunk", chuRtd.TYPE_EVIL)

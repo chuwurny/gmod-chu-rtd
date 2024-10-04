@@ -1,25 +1,15 @@
 function chuRtd.Roll(ply, effectId)
-    local isRandom = not effectId
     local effect
 
-    if isRandom then
-        local effects = x.CopySequence(chuRtd.Effects.Values)
-
-        repeat
-            x.Assert(#effects ~= 0,
-                     "Cannot pick random effect: no suitable effects")
-
-            effect = table.remove(effects, math.random(#effects))
-        until effect:CanRoll(ply) and
-              hook.Run("ChuRtdCanRoll", ply, effect) ~= false
-
-        effectId = effect.Id
-    else
+    if type(effectId) == "string" then
         effect = x.Assert(
             chuRtd.Effects:Get(effectId),
             "Effect %s is not valid!",
             effectId
         )
+    else
+        effect = effectId
+        effectId = effect.Id
     end
 
     if ply:IsRtdActive() then
@@ -55,7 +45,7 @@ function chuRtd.Roll(ply, effectId)
     ply:RPC("chuRtd.__OnRolled", chuRtd.Effects:Index(effectId), data)
 
     if effect.FormatMessage ~= effect._NO_FORMAT_MESSAGE then
-        x.PrettyPrintLangAll("chu-rtd", effect:FormatMessage(ply, effect, data))
+        x.PrettyPrintLangAll("chu-rtd", effect:FormatMessage(ply, data))
     else
         local msg = {
             team.GetColor(ply:Team()),
@@ -63,7 +53,7 @@ function chuRtd.Roll(ply, effectId)
             x.ColorLightGray,
             " ",
             { "rolled-effect" },
-            effect.Color,
+            effect.Type.Color,
             " ",
             { effect.PhraseName }
         }
@@ -86,14 +76,73 @@ function chuRtd.Roll(ply, effectId)
     end
 end
 
-function chuRtd.TryRoll(ply, effectId)
+function chuRtd.RollRandom(ply, luckiness)
+    luckiness = luckiness or 0.5
+
+    local findType
+
+    local luck = math.random()
+
+    if luck < luckiness then
+        findType = chuRtd.TYPE_GOOD
+    else
+        -- Roll for luck again
+        luck = math.random()
+
+        if luck < luckiness then
+            findType = chuRtd.TYPE_NEUTRAL
+        else
+            findType = chuRtd.TYPE_EVIL
+        end
+    end
+
+    local effect
+    local effects = x.CopySequence(chuRtd.Effects.Values)
+
+    repeat
+        x.Assert(#effects ~= 0,
+            "Cannot pick random effect: no suitable effects")
+
+        effect = table.remove(effects, math.random(#effects))
+    until effect.Type == findType and
+        effect:CanRoll(ply) and
+        hook.Run("ChuRtdCanRoll", ply, effect) ~= false
+
+    return chuRtd.Roll(ply, effect)
+end
+
+local function processTryRoll(ply)
     if ply:IsRtdActive() then
         ply:PrettyPrintLang("chu-rtd", x.ColorRed, { "you-already-have-rtd" })
 
         return false
     end
 
+    if not ply:Alive() then
+        ply:PrettyPrintLang("chu-rtd", x.ColorRed, { "cannot-rtd-when-dead" })
+
+        return false
+    end
+
+    return true
+end
+
+function chuRtd.TryRoll(ply, effectId)
+    if not processTryRoll(ply) then
+        return false
+    end
+
     chuRtd.Roll(ply, effectId)
+
+    return true
+end
+
+function chuRtd.TryRollRandom(ply, luckiness)
+    if not processTryRoll(ply) then
+        return false
+    end
+
+    chuRtd.RollRandom(ply, luckiness)
 
     return true
 end

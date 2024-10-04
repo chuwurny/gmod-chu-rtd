@@ -19,6 +19,7 @@ ctx:DefineLanguagePhrase("seconds")
 ctx:DefineLanguagePhrase("effect-ended")
 ctx:DefineLanguagePhrase("died-with-active-effect")
 ctx:DefineLanguagePhrase("you-already-have-rtd")
+ctx:DefineLanguagePhrase("cannot-rtd-when-dead")
 ctx:DefineLanguagePhrase("command-help")
 
 for _, effect in ipairs(chuRtd.Effects.Values) do

@@ -1,1 +1,1 @@
-chuRtd.Effect("drunk-movement", chuRtd.COLOR_EVIL)
+chuRtd.Effect("drunk-movement", chuRtd.TYPE_EVIL)

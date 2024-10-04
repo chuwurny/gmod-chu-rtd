@@ -1,1 +1,1 @@
-chuRtd.Effect("zombie", chuRtd.COLOR_EVIL)
+chuRtd.Effect("zombie", chuRtd.TYPE_EVIL)

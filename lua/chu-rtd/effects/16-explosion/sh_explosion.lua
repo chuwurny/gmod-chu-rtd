@@ -1,1 +1,1 @@
-chuRtd.Effect("explosion", chuRtd.COLOR_EVIL):Once()
+chuRtd.Effect("explosion", chuRtd.TYPE_EVIL):Once()

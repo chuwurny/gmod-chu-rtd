@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("second-life", chuRtd.COLOR_GOOD)
+local effect = chuRtd.Effect("second-life", chuRtd.TYPE_GOOD)
 
 effect.LanguagePhrases = {
     revives = "revives",

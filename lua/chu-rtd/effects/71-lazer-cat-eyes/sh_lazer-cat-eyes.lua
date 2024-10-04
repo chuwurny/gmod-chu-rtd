@@ -1,1 +1,1 @@
-chuRtd.Effect("lazer-cat-eyes", chuRtd.COLOR_GOOD)
+chuRtd.Effect("lazer-cat-eyes", chuRtd.TYPE_GOOD)

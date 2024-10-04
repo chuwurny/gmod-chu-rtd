@@ -1,1 +1,1 @@
-chuRtd.Effect("lags", chuRtd.COLOR_EVIL)
+chuRtd.Effect("lags", chuRtd.TYPE_EVIL)

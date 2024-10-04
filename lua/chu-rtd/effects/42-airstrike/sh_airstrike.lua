@@ -1,1 +1,1 @@
-chuRtd.Effect("airstrike", chuRtd.COLOR_GOOD)
+chuRtd.Effect("airstrike", chuRtd.TYPE_GOOD)

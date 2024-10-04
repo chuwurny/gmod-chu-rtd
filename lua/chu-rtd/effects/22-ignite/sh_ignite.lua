@@ -1,1 +1,1 @@
-chuRtd.Effect("ignite", chuRtd.COLOR_EVIL)
+chuRtd.Effect("ignite", chuRtd.TYPE_EVIL)

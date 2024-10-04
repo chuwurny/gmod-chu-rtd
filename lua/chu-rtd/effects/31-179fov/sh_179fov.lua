@@ -1,1 +1,1 @@
-chuRtd.Effect("179fov", chuRtd.COLOR_EVIL)
+chuRtd.Effect("179fov", chuRtd.TYPE_EVIL)

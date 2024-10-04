@@ -1,1 +1,1 @@
-chuRtd.Effect("aimbot", chuRtd.COLOR_GOOD)
+chuRtd.Effect("aimbot", chuRtd.TYPE_GOOD)

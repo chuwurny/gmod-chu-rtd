@@ -1,1 +1,1 @@
-chuRtd.Effect("artillery", chuRtd.COLOR_GOOD)
+chuRtd.Effect("artillery", chuRtd.TYPE_GOOD)

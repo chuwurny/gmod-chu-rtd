@@ -1,1 +1,1 @@
-chuRtd.Effect("its-raining-nades", chuRtd.COLOR_EVIL)
+chuRtd.Effect("its-raining-nades", chuRtd.TYPE_EVIL)

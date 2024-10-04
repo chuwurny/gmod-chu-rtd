@@ -1,2 +1,2 @@
-chuRtd.Effect("car-crash", chuRtd.COLOR_EVIL)
+chuRtd.Effect("car-crash", chuRtd.TYPE_EVIL)
     :Duration(5)

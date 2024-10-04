@@ -1,1 +1,1 @@
-chuRtd.Effect("strip-weapons", chuRtd.COLOR_EVIL):Once()
+chuRtd.Effect("strip-weapons", chuRtd.TYPE_EVIL):Once()

@@ -1,1 +1,1 @@
-chuRtd.Effect("bouncy", chuRtd.COLOR_EVIL)
+chuRtd.Effect("bouncy", chuRtd.TYPE_EVIL)

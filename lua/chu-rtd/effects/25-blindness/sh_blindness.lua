@@ -1,4 +1,4 @@
-local effect = chuRtd.Effect("blindness", chuRtd.COLOR_EVIL)
+local effect = chuRtd.Effect("blindness", chuRtd.TYPE_EVIL)
 
 if CLIENT then
     local FADE_TIME = 3

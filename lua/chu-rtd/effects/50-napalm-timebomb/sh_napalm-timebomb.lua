@@ -1,1 +1,1 @@
-chuRtd.Effect("napalm-timebomb", chuRtd.COLOR_EVIL)
+chuRtd.Effect("napalm-timebomb", chuRtd.TYPE_EVIL)

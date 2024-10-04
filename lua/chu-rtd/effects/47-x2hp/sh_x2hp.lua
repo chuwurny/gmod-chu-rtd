@@ -1,1 +1,1 @@
-chuRtd.Effect("x2hp", chuRtd.COLOR_GOOD):Once()
+chuRtd.Effect("x2hp", chuRtd.TYPE_GOOD):Once()
