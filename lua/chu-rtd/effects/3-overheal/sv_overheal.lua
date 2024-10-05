@@ -2,8 +2,8 @@ local effect = chuRtd.Effects:Get("overheal")
 
 local OVERHEAL_HP = 1000
 
-function effect:CanRoll(context)
-    return context.Player:GetMaxHealth() < OVERHEAL_HP
+function effect:CanRoll(ply)
+    return ply:GetMaxHealth() < OVERHEAL_HP
 end
 
 function effect:OnRolled(context)
