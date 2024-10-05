@@ -1,9 +1,9 @@
 local effect = chuRtd.Effects:Get("godmode")
 
-function effect:OnRolled(ply)
-    ply:GodEnable()
+function effect:OnRolled(context)
+    context.Player:GodEnable()
 end
 
-function effect:OnEnded(ply)
-    ply:GodDisable()
+function effect:OnEnded(context)
+    context.Player:GodDisable()
 end

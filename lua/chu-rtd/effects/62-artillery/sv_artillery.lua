@@ -19,22 +19,22 @@ function effect:CreateMissile(origin, attacker, damage)
     return missile
 end
 
-function effect:OnRolled(ply, data)
-    data.Missiles = {}
+function effect:OnRolled(context)
+    context.Missiles = {}
 end
 
-function effect:OnTick(ply, data)
-    local target = chuRtd.Helpers.FindNearestTarget(ply)
+function effect:OnTick(context)
+    local target = context:FindNearestTarget()
 
-    local origin = ply:GetShootPos()
+    local origin = context.Player:GetShootPos()
     origin.x = origin.x + (math.cos(math.random(-math.tau, math.tau)) * self.SPAWN_RADIUS)
     origin.y = origin.y + (math.sin(math.random(-math.tau, math.tau)) * self.SPAWN_RADIUS)
 
-    if ply:TimeoutAction("rtd artillery fire delay", self.SPAWN_DELAY) then
-        table.insert(data.Missiles, self:CreateMissile(origin, ply, 50))
+    if context.Player:TimeoutAction("rtd artillery fire delay", self.SPAWN_DELAY) then
+        table.insert(context.Missiles, self:CreateMissile(origin, context.Player, 50))
     end
 
-    x.FilterSequence(data.Missiles, function(missile)
+    x.FilterSequence(context.Missiles, function(missile)
         if not IsValid(missile) then
             return false
         end
@@ -44,14 +44,14 @@ function effect:OnTick(ply, data)
         if (missile:GetCreationTime() + self.HOVER_DURATION) > CurTime() then
             -- fly above the air
 
-            destPos = ply:GetPos()
+            destPos = context.Player:GetPos()
             destPos.z = destPos.z + 3000
         elseif IsValid(target) then
             -- TODO: predict position based on velocity?
 
             destPos = target:GetPos()
         else
-            destPos = ply:GetPos()
+            destPos = context.Player:GetPos()
             destPos.x = destPos.x + math.random(-500, 500)
             destPos.y = destPos.y + math.random(-500, 500)
             destPos.z = destPos.z + 400
@@ -63,6 +63,6 @@ function effect:OnTick(ply, data)
     end)
 end
 
-function effect:OnEnded(ply, data)
-    x.EachSequence(data.Missiles, SafeRemoveEntity)
+function effect:OnEnded(context)
+    x.EachSequence(context.Missiles, SafeRemoveEntity)
 end

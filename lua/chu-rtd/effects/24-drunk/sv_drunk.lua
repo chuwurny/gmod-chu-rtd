@@ -22,6 +22,6 @@ function effect:Drug(ply)
     )
 end
 
-function effect:OnTick(ply)
-    self:Drug(ply)
+function effect:OnTick(context)
+    self:Drug(context.Player)
 end

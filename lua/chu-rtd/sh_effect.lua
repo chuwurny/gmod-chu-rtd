@@ -1,4 +1,5 @@
 x.Dependency("chu-rtd", "sh_types.lua")
+x.Dependency("chu-rtd", "cl_rtd.lua")
 
 chuRtd.EFFECT = chuRtd.EFFECT or {}
 
@@ -21,7 +22,7 @@ function EFFECT:RandDuration(min, max)
     return self:Duration({ Min = min, Max = max })
 end
 
-function EFFECT._NO_FORMAT_MESSAGE()
+function EFFECT._NO_FORMAT_MESSAGE(context)
 end
 
 function EFFECT:CanRoll(ply)
@@ -33,15 +34,15 @@ end
 -- for override
 EFFECT.FormatMessage = EFFECT._NO_FORMAT_MESSAGE
 
-function EFFECT:OnRolled(ply, data)
+function EFFECT:OnRolled(context)
     -- for override
 end
 
-function EFFECT:OnTick(ply, data)
+function EFFECT:OnTick(context)
     -- for override
 end
 
-function EFFECT:OnEnded(ply, data)
+function EFFECT:OnEnded(context)
     -- for override
 end
 
@@ -51,12 +52,11 @@ if CLIENT then
             local lp = LocalPlayer()
 
             if not IsValid(lp) then return end
-            if not lp.RtdData then return end
-            if lp:GetRtdEffect() ~= self then return end
+            if not lp:HasRolledRtdEffect(self) then return end
 
-            local data = lp.RtdData
+            local context = lp.RolledRtdEffects:Get(self.Id)
 
-            return callback(self, lp, data, ...)
+            return callback(self, context, ...)
         end, priority)
     end
 end

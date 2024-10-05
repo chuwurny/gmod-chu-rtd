@@ -4,7 +4,7 @@ local SOUND = "buttons/blip1.wav"
 
 timer.Create("beacon rtders", 0.5, 0, function()
     for _, ply in player.Iterator() do
-        if ply:GetRtdEffect() == effect then
+        if ply:HasRolledRtdEffect(effect) then
             ply:EmitSound(SOUND)
 
             x.RPCAll(

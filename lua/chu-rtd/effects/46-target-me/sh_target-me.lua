@@ -7,7 +7,7 @@ if CLIENT then
         targetList:Clear()
 
         for _, ply in player.Iterator() do
-            if ply:GetRtdEffectId() == effect.Id then
+            if ply:HasRolledRtdEffect(effect) then
                 targetList:Insert(ply)
             end
         end

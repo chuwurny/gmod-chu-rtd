@@ -40,7 +40,7 @@ function effect:DrawLazers(leftEye, rightEye, destPos)
 end
 
 hook.Add("PostPlayerDraw", "rtd lazer cat eyes", function(ply)
-    if ply:GetRtdEffect() ~= effect then return end
+    if not ply:HasRolledRtdEffect(effect) then return end
 
     local leftEye, rightEye = effect:CalculateEyesPosition(ply)
     local destPos = ply:GetEyeTraceNoCursor().HitPos
@@ -48,19 +48,19 @@ hook.Add("PostPlayerDraw", "rtd lazer cat eyes", function(ply)
     effect:DrawLazers(leftEye, rightEye, destPos)
 end)
 
-effect:HookLocalPlayer("PostDrawTranslucentRenderables", function(_, lp, _, depth, skybox, skybox3d)
+effect:HookLocalPlayer("PostDrawTranslucentRenderables", function(_, context, depth, skybox, skybox3d)
     if skybox or skybox3d then return end
-    if lp:ShouldDrawLocalPlayer() then return end
+    if context.Player:ShouldDrawLocalPlayer() then return end
 
-    local shootPos = lp:GetShootPos()
+    local shootPos = context.Player:GetShootPos()
     shootPos.z = shootPos.z - 5
 
     local leftEye, rightEye = effect:CalculateEyesPositionFromCoords(
         shootPos,
-        lp:GetEyeTraceNoCursor().Normal
+        context.Player:GetEyeTraceNoCursor().Normal
     )
 
-    local destPos = lp:GetEyeTraceNoCursor().HitPos
+    local destPos = context.Player:GetEyeTraceNoCursor().HitPos
 
     effect:DrawLazers(leftEye, rightEye, destPos)
 end)

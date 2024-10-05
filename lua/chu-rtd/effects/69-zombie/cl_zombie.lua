@@ -6,7 +6,7 @@ local effect = chuRtd.Effects:Get("zombie")
 
 local MAX_DISTANCE = 1000
 
-effect:HookLocalPlayer("CreateMove", function(_, lp, _, cmd)
+effect:HookLocalPlayer("CreateMove", function(_, context, cmd)
     cmd:ClearButtons()
     cmd:ClearMovement()
 
@@ -15,23 +15,23 @@ effect:HookLocalPlayer("CreateMove", function(_, lp, _, cmd)
 
     cmd:SetForwardMove(cl_forwardspeed:GetFloat())
 
-    local target = chuRtd.Helpers.FindNearestTarget(lp, nil, MAX_DISTANCE)
+    local target = context:FindNearestTarget(nil, MAX_DISTANCE)
 
     if IsValid(target) then
-        local targetAngle = (target:GetShootPos() - lp:GetShootPos()):Angle()
+        local targetAngle = (target:GetShootPos() - context.Player:GetShootPos()):Angle()
         targetAngle.p = 0
 
         cmd:SetViewAngles(targetAngle)
     end
 
     if
-        lp:TimeoutAction("rtd zombie unstuck", 1) and
-        lp:GetVelocity():Length() < (lp:GetRunSpeed() / 2)
+        context.Player:TimeoutAction("rtd zombie unstuck", 1) and
+        context.Player:GetVelocity():Length() < (context.Player:GetRunSpeed() / 2)
     then
         cmd:SetViewAngles(Angle(0, math.random(-180, 180), 0))
     end
 
-    if lp:TimeoutAction("rtd zombie jump", 0.5) then
+    if context.Player:TimeoutAction("rtd zombie jump", 0.5) then
         cmd:AddKey(IN_JUMP)
         cmd:AddKey(IN_DUCK)
     else
@@ -40,7 +40,7 @@ effect:HookLocalPlayer("CreateMove", function(_, lp, _, cmd)
     end
 end)
 
-effect:HookLocalPlayer("InputMouseApply", function(_, _, _, cmd)
+effect:HookLocalPlayer("InputMouseApply", function(_, _, cmd)
     cmd:SetMouseX(0)
     cmd:SetMouseY(0)
 

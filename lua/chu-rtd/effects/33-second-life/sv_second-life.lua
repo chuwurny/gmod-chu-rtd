@@ -11,58 +11,58 @@ effect.GODMODE_DURATION = 5
 effect.STAGE_RESPAWN = 0
 effect.STAGE_REVIVE  = 1
 
-function effect:OnEnded(ply)
-    if ply:Alive() then return end
+function effect:OnEnded(context)
+    if context.Player:Alive() then return end
 
-    ply.rtdSecondLifeStage = self.STAGE_RESPAWN
+    context.Player.rtdSecondLifeStage = self.STAGE_RESPAWN
 
-    ply:EmitSound(self.SPAWN_DELAY_SOUND)
+    context.Player:EmitSound(self.SPAWN_DELAY_SOUND)
 
-    local deathPos = ply:GetPos()
+    local deathPos = context.Player:GetPos()
 
-    local timerId = "rtd second life " .. ply:UserID()
+    local timerId = "rtd second life " .. context.Player:UserID()
 
     timer.Create(timerId, self.RESPAWN_DELAY, 1, function()
-        if not IsValid(ply) then return end
+        if not IsValid(context.Player) then return end
 
-        ply.rtdSecondLifeStage = self.STAGE_REVIVE
+        context.Player.rtdSecondLifeStage = self.STAGE_REVIVE
 
         x.PrettyPrintLangAll(
             "chu-rtd",
-            team.GetColor(ply:Team()),
-            ply:Nick(),
+            team.GetColor(context.Player:Team()),
+            context.Player:Nick(),
             " ",
             x.ColorRed,
             { self.LanguagePhrases.revives }
         )
 
-        local eyeAngles = ply:EyeAngles()
+        local eyeAngles = context.Player:EyeAngles()
 
-        ply:Spawn()
+        context.Player:Spawn()
 
-        ply:EmitSound(self.SPAWN_SOUND)
+        context.Player:EmitSound(self.SPAWN_SOUND)
 
         timer.Create(timerId, 0, 1, function()
-            if not IsValid(ply) then return end
+            if not IsValid(context.Player) then return end
 
-            local oMaterial = ply:GetMaterial()
+            local oMaterial = context.Player:GetMaterial()
 
-            ply:SetPos(deathPos)
-            ply:SetEyeAngles(eyeAngles)
-            ply:GodEnable()
-            ply:SetMaterial(self.REVIVE_MATERIAL)
+            context.Player:SetPos(deathPos)
+            context.Player:SetEyeAngles(eyeAngles)
+            context.Player:GodEnable()
+            context.Player:SetMaterial(self.REVIVE_MATERIAL)
 
-            ply:PrettyPrintLang(
+            context.Player:PrettyPrintLang(
                 "chu-rtd",
                 x.ColorGreen,
                 { self.LanguagePhrases.youGotGodmode, self.GODMODE_DURATION }
             )
 
             timer.Create(timerId, self.GODMODE_DURATION, 1, function()
-                if not IsValid(ply) then return end
+                if not IsValid(context.Player) then return end
 
-                ply:GodDisable()
-                ply:SetMaterial(oMaterial)
+                context.Player:GodDisable()
+                context.Player:SetMaterial(oMaterial)
             end)
         end)
     end)

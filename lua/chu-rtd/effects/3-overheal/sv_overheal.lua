@@ -2,44 +2,44 @@ local effect = chuRtd.Effects:Get("overheal")
 
 local OVERHEAL_HP = 1000
 
-function effect:CanRoll(ply)
-    return ply:GetMaxHealth() < OVERHEAL_HP
+function effect:CanRoll(context)
+    return context.Player:GetMaxHealth() < OVERHEAL_HP
 end
 
-function effect:OnRolled(ply, data)
-    ply:SetHealth(1000)
+function effect:OnRolled(context)
+    context.Player:SetHealth(1000)
 
-    data.HealthLost = 0
-    data.HealthLerp = 0
-    data.HealthLerpMax = OVERHEAL_HP - ply:GetMaxHealth()
+    context.HealthLost = 0
+    context.HealthLerp = 0
+    context.HealthLerpMax = OVERHEAL_HP - context.Player:GetMaxHealth()
 end
 
-function effect:OnTick(ply, data)
+function effect:OnTick(context)
     local healthShouldBeLost = math.Round(
         Lerp(
-            1 - ((data.EndTime - CurTime()) / self._Duration),
+            1 - ((context.EndTime - CurTime()) / context:Duration()),
             0,
-            data.HealthLerpMax
+            context.HealthLerpMax
         )
     )
 
-    local subtractHealth = healthShouldBeLost - data.HealthLerp
+    local subtractHealth = healthShouldBeLost - context.HealthLerp
 
-    data.HealthLerp = healthShouldBeLost
+    context.HealthLerp = healthShouldBeLost
 
-    local newHealth = ply:Health() - subtractHealth
+    local newHealth = context.Player:Health() - subtractHealth
 
-    if newHealth < ply:GetMaxHealth() then
-        ply:StopRtd()
-
-        return
+    if newHealth < context.Player:GetMaxHealth() then
+        return context:Stop()
     end
 
-    ply:SetHealth(newHealth)
+    context.Player:SetHealth(newHealth)
 end
 
-function effect:OnEnded(ply)
-    if not ply:Alive() then return end
+function effect:OnEnded(context)
+    if not context.Player:Alive() then return end
 
-    ply:SetHealth(math.min(ply:Health(), ply:GetMaxHealth()))
+    context.Player:SetHealth(
+        math.min(context.Player:Health(), context.Player:GetMaxHealth())
+    )
 end

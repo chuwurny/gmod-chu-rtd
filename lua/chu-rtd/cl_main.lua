@@ -1,29 +1,41 @@
-function chuRtd.__OnRolled(effectIndex, data)
+function chuRtd.__OnRolled(ply, effectIndex, startTime, endTime)
+    if not ply.RolledRtdEffects then return end
+
     local effect = chuRtd.Effects.Values[effectIndex]
-
-    LocalPlayer().RtdData = data
-
-    effect:OnRolled(LocalPlayer(), data)
-end
-
-function chuRtd.__OnEnded(effectIndex)
-    local effect = chuRtd.Effects.Values[effectIndex]
-
-    local data
+    local context = chuRtd._EffectContextEx(ply, effect, startTime, endTime)
 
     if not effect._Once then
-        data = LocalPlayer().RtdData
-        LocalPlayer().RtdData = nil
+        ply.RolledRtdEffects:Set(effect.Id, context)
     end
 
-    effect:OnEnded(LocalPlayer(), data)
+    if ply == LocalPlayer() then
+        effect:OnRolled(context)
+    end
+end
+
+function chuRtd.__OnEnded(ply, effectIndex)
+    if not ply.RolledRtdEffects then return end
+
+    local effect = chuRtd.Effects.Values[effectIndex]
+    local context = ply.RolledRtdEffects:Get(effect.Id)
+
+    if ply == LocalPlayer() then
+        effect:OnEnded(context)
+    end
+
+    ply.RolledRtdEffects:Delete(effect.Id)
 end
 
 x.EnsureHasLocalPlayer(function(lp)
-    hook.Add("Tick", "churtd", function()
-        if not lp.RtdData then return end
-        if CurTime() > lp:GetRtdEndTime() then return end
+    for _, ply in player.Iterator() do
+        ply.RolledRtdEffects = ply.RolledRtdEffects or x.Map()
+    end
 
-        lp:GetRtdEffect():OnTick(lp, lp.RtdData)
+    hook.Add("Tick", "churtd", function()
+        for _, context in ipairs(lp.RolledRtdEffects.Values) do
+            if not context:IsExpired() then
+                context.Effect:OnTick(context)
+            end
+        end
     end)
 end)

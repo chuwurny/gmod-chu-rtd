@@ -1,7 +1,7 @@
 local effect = chuRtd.Effect("dizzy", chuRtd.TYPE_EVIL)
 
 if CLIENT then
-    effect:HookLocalPlayer("CreateMove", function(_, _, _, cmd)
+    effect:HookLocalPlayer("CreateMove", function(_, _, cmd)
         local ang = cmd:GetViewAngles()
 
         if ang.p < 40 then

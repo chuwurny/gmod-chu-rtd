@@ -1,13 +1,13 @@
 local effect = chuRtd.Effects:Get("invisibility")
 
-function effect:OnRolled(ply, data)
-    data.oHadShadow = not ply:IsEffectActive(EF_NOSHADOW)
+function effect:OnRolled(context)
+    context.oHadShadow = not context.Player:IsEffectActive(EF_NOSHADOW)
 
-    ply:AddEffects(EF_NOSHADOW)
+    context.Player:AddEffects(EF_NOSHADOW)
 end
 
-function effect:OnEnded(ply, data)
-    if data.oHadShadow then
-        ply:RemoveEffects(EF_NOSHADOW)
+function effect:OnEnded(context)
+    if context.oHadShadow then
+        context.Player:RemoveEffects(EF_NOSHADOW)
     end
 end

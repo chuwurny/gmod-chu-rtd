@@ -8,3 +8,7 @@ x.EnsureInitPostEntity(function()
         return a.Id > b.Id
     end)
 end)
+
+hook.Add("PlayerReady", "churtd init player", function(ply)
+    ply.RolledRtdEffects = x.Map()
+end)

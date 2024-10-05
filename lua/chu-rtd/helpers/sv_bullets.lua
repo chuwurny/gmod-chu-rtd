@@ -8,7 +8,7 @@ function chuRtd.Helpers.PostDamage(effect, callback)
 
         if attacker == target then return end
         if not IsValid(attacker) or not attacker:IsPlayer() then return end
-        if attacker:GetRtdEffect() ~= effect then return end
+        if not attacker:HasRolledRtdEffect(effect) then return end
 
         local result = callback(target, dmg)
 

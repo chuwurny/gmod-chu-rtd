@@ -12,11 +12,11 @@ effect.BEEP_SOUND   = "buttons/button17.wav"
 
 effect.OnTick = timebombEffect.OnTick
 
-function effect:OnEnded(rtdPlayer)
-    rtdPlayer:EmitSound("Explo.ww2bomb")
+function effect:OnEnded(context)
+    context.Player:EmitSound("Explo.ww2bomb")
 
     for _, ply in player.Iterator() do
-        if ply:GetPos():Distance(rtdPlayer:GetPos()) < self.IGNITE_RADIUS then
+        if ply:GetPos():Distance(context.Player:GetPos()) < self.IGNITE_RADIUS then
             ply:Ignite(self.IGNITE_DURATION)
         end
     end

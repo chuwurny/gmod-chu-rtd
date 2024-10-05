@@ -6,7 +6,7 @@ end
 
 hook.Add("EntityTakeDamage", "rtd damage distribution", function(target, dmg)
     if not target:IsPlayer() then return end
-    if target:GetRtdEffect() ~= effect then return end
+    if not target:HasRolledRtdEffect(effect) then return end
 
     local outputDamage = dmg:GetDamage() / (player.GetCount() - 1)
     local inputDamage  = dmg:GetDamage() / player.GetCount()

@@ -14,39 +14,39 @@ local MODELS =
     "models/props_wasteland/laundry_dryer002.mdl"
 }
 
-function effect:OnRolled(ply, data)
+function effect:OnRolled(context)
     local ent = ents.Create("prop_physics")
 
     if not IsValid(ent) then
-        return ply:StopRtd()
+        return context.Player:StopRtd()
     end
 
-    data.oMoveType = ply:GetMoveType()
+    context.oMoveType = context.Player:GetMoveType()
 
-    ply:ExitVehicle()
-    ply:SetMoveType(MOVETYPE_NONE)
+    context.Player:ExitVehicle()
+    context.Player:SetMoveType(MOVETYPE_NONE)
 
-    data.Prop = ent
+    context.Prop = ent
 
-    ent:SetPos(ply:GetPos())
+    ent:SetPos(context.Player:GetPos())
     ent:SetModel(MODELS[math.random(#MODELS)])
-    ent:SetPos(ply:GetPos())
-    ply:SetParent(ent)
+    ent:SetPos(context.Player:GetPos())
+    context.Player:SetParent(ent)
     ent:Spawn()
 end
 
-function effect:OnTick(ply, data)
-    if not IsValid(data.Prop) then
-        return ply:StopRtd()
+function effect:OnTick(context)
+    if not IsValid(context.Prop) then
+        return context:Stop()
     end
 end
 
-function effect:OnEnded(ply, data)
-    SafeRemoveEntity(data.Prop)
+function effect:OnEnded(context)
+    SafeRemoveEntity(context.Prop)
 
-    if data.oMoveType then
-        ply:SetMoveType(data.oMoveType)
+    if context.oMoveType then
+        context.Player:SetMoveType(context.oMoveType)
     end
 
-    ply:SetEyeAngles(Angle())
+    context.Player:SetEyeAngles(Angle())
 end

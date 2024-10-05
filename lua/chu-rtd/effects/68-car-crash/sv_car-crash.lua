@@ -17,43 +17,43 @@ effect.DESTROYED_CARS = {
     "models/props_vehicles/car005b_physics.mdl",
 }
 
-function effect:OnRolled(ply, data)
+function effect:OnRolled(context)
     local car = ents.Create("prop_physics")
 
     if not IsValid(car) then
-        return ply:StopRtd()
+        return context:Stop()
     end
 
-    local normal = ply:GetEyeTrace().Normal
+    local normal = context.Player:GetEyeTrace().Normal
     normal.z = 0
 
     car:SetModel("models/props_vehicles/car005a_physics.mdl")
-    car:SetPos(ply:GetPos() + Vector(0, 0, 100) + normal * 2000)
-    car:SetAngles(Angle(0, ply:EyeAngles().y - 180, 0))
+    car:SetPos(context.Player:GetPos() + Vector(0, 0, 100) + normal * 2000)
+    car:SetAngles(Angle(0, context.Player:EyeAngles().y - 180, 0))
     car:Spawn()
 
     car:EmitSound("vehicles/v8/skid_highfriction.wav")
-    ply:EmitSound("vo/npc/male01/no02.wav")
+    context.Player:EmitSound("vo/npc/male01/no02.wav")
 
-    data.Car = car
+    context.Car = car
 end
 
-function effect:OnTick(ply, data)
-    if not IsValid(data.Car) then
-        return ply:StopRtd()
+function effect:OnTick(context)
+    if not IsValid(context.Car) then
+        return context:Stop()
     end
 
-    local phys = data.Car:GetPhysicsObject()
+    local phys = context.Car:GetPhysicsObject()
 
     if not phys then
-        return ply:StopRtd()
+        return context:Stop()
     end
 
-    phys:SetVelocity((ply:GetPos() - data.Car:GetPos()) * 10)
+    phys:SetVelocity((context.Player:GetPos() - context.Car:GetPos()) * 10)
 end
 
-function effect:OnEnded(ply, data)
-    if not IsValid(data.Car) then
+function effect:OnEnded(context)
+    if not IsValid(context.Car) then
         return
     end
 
@@ -62,35 +62,35 @@ function effect:OnEnded(ply, data)
 
         if IsValid(wheel) then
             wheel:SetModel(self.WHEELS[math.random(#self.WHEELS)])
-            wheel:SetPos(data.Car:GetPos())
-            wheel:SetAngles(data.Car:GetAngles() + Angle(0, math.random(-45, 45), 0))
+            wheel:SetPos(context.Car:GetPos())
+            wheel:SetAngles(context.Car:GetAngles() + Angle(0, math.random(-45, 45), 0))
             wheel:Spawn()
             wheel:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
             wheel:Ignite(self.DEBRIS_LIVE_TIME, 100)
 
-            local phys = data.Car:GetPhysicsObject()
+            local phys = context.Car:GetPhysicsObject()
 
             if IsValid(phys) then
-                phys:SetVelocity(data.Car:GetVelocity())
+                phys:SetVelocity(context.Car:GetVelocity())
             end
 
             SafeRemoveEntityDelayed(wheel, self.DEBRIS_LIVE_TIME)
         end
     end
 
-    data.Car:SetModel(self.DESTROYED_CARS[math.random(#self.DESTROYED_CARS)])
-    data.Car:SetMaterial "models/props_foliage/tree_deciduous_01a_trunk"
-    data.Car:Ignite(10, 200)
+    context.Car:SetModel(self.DESTROYED_CARS[math.random(#self.DESTROYED_CARS)])
+    context.Car:SetMaterial "models/props_foliage/tree_deciduous_01a_trunk"
+    context.Car:Ignite(10, 200)
 
-    explosionEffect:Explode(data.Car:GetPos(), ply, 1000, 300)
+    explosionEffect:Explode(context.Car:GetPos(), context.Player, 1000, 300)
 
     timer.Simple(10, function()
-        if not IsValid(data.Car) then
+        if not IsValid(context.Car) then
             return
         end
 
-        explosionEffect:Explode(data.Car:GetPos(), ply, 2000, 300)
+        explosionEffect:Explode(context.Car:GetPos(), context.Player, 2000, 300)
 
-        data.Car:Remove()
+        context.Car:Remove()
     end)
 end

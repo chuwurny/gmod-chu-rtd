@@ -1,17 +1,17 @@
 local effect = chuRtd.Effects:Get("snail")
 
-function effect:OnRolled(ply, data)
-    data.oSlowWalkSpeed = ply:GetSlowWalkSpeed()
-    data.oWalkSpeed = ply:GetWalkSpeed()
-    data.oRunSpeed = ply:GetRunSpeed()
+function effect:OnRolled(context)
+    context.oSlowWalkSpeed = context.Player:GetSlowWalkSpeed()
+    context.oWalkSpeed = context.Player:GetWalkSpeed()
+    context.oRunSpeed = context.Player:GetRunSpeed()
 
-    ply:SetSlowWalkSpeed(data.oSlowWalkSpeed / 3)
-    ply:SetWalkSpeed(data.oWalkSpeed / 3)
-    ply:SetRunSpeed(data.oRunSpeed / 3)
+    context.Player:SetSlowWalkSpeed(context.oSlowWalkSpeed / 3)
+    context.Player:SetWalkSpeed(context.oWalkSpeed / 3)
+    context.Player:SetRunSpeed(context.oRunSpeed / 3)
 end
 
-function effect:OnEnded(ply, data)
-    ply:SetSlowWalkSpeed(data.oSlowWalkSpeed)
-    ply:SetWalkSpeed(data.oWalkSpeed)
-    ply:SetRunSpeed(data.oRunSpeed)
+function effect:OnEnded(context)
+    context.Player:SetSlowWalkSpeed(context.oSlowWalkSpeed)
+    context.Player:SetWalkSpeed(context.oWalkSpeed)
+    context.Player:SetRunSpeed(context.oRunSpeed)
 end

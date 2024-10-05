@@ -7,22 +7,22 @@ local effect = chuRtd.Effects:Get("timebomb")
 effect.CHARGE_SOUND = "weapons/cguard/charging.wav"
 effect.BEEP_SOUND   = "buttons/button17.wav"
 
-function effect:OnTick(ply, data)
-    local timeLeft = data.EndTime - CurTime()
+function effect:OnTick(context)
+    local timeLeft = context.EndTime - CurTime()
 
-    if not data.ChargeSound and timeLeft < 1 then
-        data.ChargeSound = true
+    if not context.ChargeSound and timeLeft < 1 then
+        context.ChargeSound = true
 
-        ply:EmitSound(self.CHARGE_SOUND)
+        context.Player:EmitSound(self.CHARGE_SOUND)
     end
 
-    if not ply:TimeoutAction("rtd timebomb beep", math.min(1, timeLeft / 10)) then
+    if not context.Player:TimeoutAction("rtd timebomb beep", math.min(1, timeLeft / 10)) then
         return
     end
 
-    ply:EmitSound(self.BEEP_SOUND)
+    context.Player:EmitSound(self.BEEP_SOUND)
 end
 
-function effect:OnEnded(ply)
-    explosionEffect:OnRolled(ply)
+function effect:OnEnded(context)
+    explosionEffect:OnRolled(context)
 end

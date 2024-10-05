@@ -1,11 +1,11 @@
 local effect = chuRtd.Effects:Get("strong-gravity")
 
-function effect:OnRolled(ply, data)
-    data.oGravity = ply:GetGravity()
+function effect:OnRolled(context)
+    context.oGravity = context.Player:GetGravity()
 
-    ply:SetGravity(10)
+    context.Player:SetGravity(10)
 end
 
-function effect:OnEnded(ply, data)
-    ply:SetGravity(data.oGravity)
+function effect:OnEnded(context)
+    context.Player:SetGravity(context.oGravity)
 end

@@ -24,8 +24,11 @@ local TAUNTS = {
     "becon",
 }
 
-function effect:OnTick(ply)
-    if not ply:IsPlayingTaunt() and ply:TimeoutAction("rtd force taunt", 0.1) then
-        ply:ConCommand("act " .. TAUNTS[math.random(#TAUNTS)])
+function effect:OnTick(context)
+    if
+        not context.Player:IsPlayingTaunt() and
+        context.Player:TimeoutAction("rtd force taunt", 0.1)
+    then
+        context.Player:ConCommand("act " .. TAUNTS[math.random(#TAUNTS)])
     end
 end

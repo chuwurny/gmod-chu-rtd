@@ -19,10 +19,10 @@ local AMOUNT = 8
 local RADIUS = 400
 local HEIGHT = 150
 
-function effect:OnRolled(ply, data)
-    data.Props = {}
+function effect:OnRolled(context)
+    context.Props = {}
 
-    local origin = ply:GetShootPos()
+    local origin = context.Player:GetShootPos()
     origin.z = origin.z + 10
 
     local step = math.tau / AMOUNT
@@ -42,30 +42,30 @@ function effect:OnRolled(ply, data)
         )
 
         if ent.CPPISetOwner then
-            ent:CPPISetOwner(ply)
+            ent:CPPISetOwner(context.Player)
         end
 
         ent:Spawn()
 
-        data.Props[i] = ent
+        context.Props[i] = ent
     end
 
     -- Print some help
-    ply:PrettyPrintLang("chu-rtd", x.ColorGreen, { self.LanguagePhrases.help })
+    context.Player:PrettyPrintLang("chu-rtd", x.ColorGreen, { self.LanguagePhrases.help })
 end
 
-function effect:OnTick(ply, data)
-    if #data.Props == 0 then
-        return chuRtd.Stop(ply)
+function effect:OnTick(context)
+    if #context.Props == 0 then
+        return context:Stop()
     end
 
-    local origin = ply:GetShootPos()
+    local origin = context.Player:GetShootPos()
     origin.z = origin.z + HEIGHT
 
-    local step = math.tau / #data.Props
+    local step = math.tau / #context.Props
     local spin = (CurTime() * 2) % TAU2
 
-    for i, prop in ipairs(data.Props) do
+    for i, prop in ipairs(context.Props) do
         if IsValid(prop) then
             local phys = prop:GetPhysicsObject()
 
@@ -77,8 +77,8 @@ function effect:OnTick(ply, data)
                 local mass = phys:GetMass()
                 local vel = phys:GetVelocity()
 
-                if ply:Crouching() then
-                    dest = ply:GetEyeTrace().HitPos
+                if context.Player:Crouching() then
+                    dest = context.Player:GetEyeTrace().HitPos
 
                     vel = vel / 20
                 else
@@ -97,8 +97,8 @@ function effect:OnTick(ply, data)
     end
 end
 
-function effect:OnEnded(ply, data)
-    for _, prop in ipairs(data.Props) do
+function effect:OnEnded(context)
+    for _, prop in ipairs(context.Props) do
         SafeRemoveEntity(prop)
     end
 end

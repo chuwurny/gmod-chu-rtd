@@ -7,3 +7,4 @@ PLAYER.RtdRandom = chuRtd.RollRandom
 PLAYER.TryRtd = chuRtd.TryRoll
 PLAYER.TryRtdRandom = chuRtd.TryRollRandom
 PLAYER.StopRtd = chuRtd.Stop
+PLAYER.StopAllRtd = chuRtd.StopAll

@@ -10,6 +10,6 @@ function effect:Explode(origin, attacker, damage, radius)
     explosion:Fire("Explode")
 end
 
-function effect:OnRolled(ply)
-    self:Explode(ply:GetPos(), ply, 500, 300)
+function effect:OnRolled(context)
+    self:Explode(context.Player:GetPos(), context.Player, 500, 300)
 end

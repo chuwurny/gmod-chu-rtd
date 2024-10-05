@@ -38,25 +38,3 @@ function chuRtd.Helpers.FindNearestPlayer(origin, filter, maxDistance)
 
     return target, targetDist
 end
-
-function chuRtd.Helpers.FindNearestTarget(attacker, filter, maxDistance)
-    return chuRtd.Helpers.FindNearestPlayer(
-        attacker:GetPos(),
-        function(target)
-            if target == attacker then
-                return false
-            end
-
-            if not chuRtd.Helpers.ShouldTarget(attacker, target) then
-                return false
-            end
-
-            if filter and not filter(target) then
-                return false
-            end
-
-            return true
-        end,
-        maxDistance
-    )
-end

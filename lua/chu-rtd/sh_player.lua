@@ -1,45 +1,25 @@
 local PLAYER = FindMetaTable("Player")
 
-function PLAYER:GetRtdEffect()
-    local idx = self:GetNWInt("churtd effect", 0)
-
-    if idx == 0 then
-        return nil
+local function getEffectId(effectId)
+    if type(effectId) == "table" then
+        return effectId.Id
     end
 
-    local effect = chuRtd.Effects.Values[idx]
-
-    x.Assert(effect, "Player has unknown rtd effect? Index: %d", idx)
-
-    return effect
+    return effectId
 end
 
-function PLAYER:GetRtdEffectId()
-    local effect = self:GetRtdEffect()
-
-    if not effect then
-        return nil
-    end
-
-    return effect.Id
+function PLAYER:HasAnyRolledRtdEffect()
+    return self.RolledRtdEffects and self.RolledRtdEffects:Length() ~= 0
 end
 
-function PLAYER:IsRtdActive()
-    return self:GetNWInt("churtd effect", 0) ~= 0
+function PLAYER:HasRolledRtdEffect(effectId)
+    effectId = getEffectId(effectId)
+
+    return self.RolledRtdEffects and self.RolledRtdEffects:Has(effectId)
 end
 
-function PLAYER:GetRtdStartTime()
-    if not self:IsRtdActive() then
-        return 0
-    end
+function PLAYER:GetRtdEffectContext(effectId)
+    effectId = getEffectId(effectId)
 
-    return self:GetNW2Float("churtd starttime", 0)
-end
-
-function PLAYER:GetRtdEndTime()
-    if not self:IsRtdActive() then
-        return 0
-    end
-
-    return self:GetNW2Float("churtd endtime", 0)
+    return self.RolledRtdEffects and self.RolledRtdEffects:Get(effectId)
 end

@@ -2,13 +2,13 @@ local effect = chuRtd.Effects:Get("magnet")
 
 local MAX_DIST = 800 ^ 2
 
-function effect:OnTick(activator)
-    local dest = activator:GetPos()
+function effect:OnTick(context)
+    local dest = context.Player:GetPos()
 
     for _, ply in player.Iterator() do
         if
-            ply ~= activator and
-            chuRtd.Helpers.ShouldTarget(activator, ply)
+            ply ~= context.Player and
+            context:ShouldTarget(ply)
         then
             local src = ply:GetPos()
             local dist = src:DistToSqr(dest)

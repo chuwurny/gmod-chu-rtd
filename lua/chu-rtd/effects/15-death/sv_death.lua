@@ -1,5 +1,5 @@
 local effect = chuRtd.Effects:Get("death")
 
-function effect:OnRolled(ply)
-    ply:Kill()
+function effect:OnRolled(context)
+    context.Player:Kill()
 end

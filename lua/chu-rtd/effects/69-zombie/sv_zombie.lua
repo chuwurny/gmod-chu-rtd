@@ -1,33 +1,33 @@
 local effect = chuRtd.Effects:Get("zombie")
 
-function effect:OnRolled(ply, data)
-    data.oRunSpeed = ply:GetRunSpeed()
+function effect:OnRolled(context)
+    context.oRunSpeed = context.Player:GetRunSpeed()
 
-    ply:SetRunSpeed(data.oRunSpeed + 250)
+    context.Player:SetRunSpeed(context.oRunSpeed + 250)
 end
 
-function effect:OnEnded(ply, data)
-    ply:SetRunSpeed(data.oRunSpeed)
+function effect:OnEnded(context)
+    context.Player:SetRunSpeed(context.oRunSpeed)
 end
 
-function effect:OnTick(ply)
-    local crowbar = ply:GetWeapon("weapon_crowbar")
+function effect:OnTick(context)
+    local crowbar = context.Player:GetWeapon("weapon_crowbar")
 
     if not IsValid(crowbar) then
-        crowbar = ply:Give("weapon_crowbar")
+        crowbar = context.Player:Give("weapon_crowbar")
     end
 
-    if ply:GetActiveWeapon() ~= crowbar then
-        ply:SelectWeapon(crowbar)
+    if context.Player:GetActiveWeapon() ~= crowbar then
+        context.Player:SelectWeapon(crowbar)
     end
 
-    if ply:TimeoutAction("rtd zombie sound", 1) then
-        ply:EmitSound("npc/zombie/zombie_voice_idle" .. math.random(1, 14) .. ".wav")
+    if context.Player:TimeoutAction("rtd zombie sound", 1) then
+        context.Player:EmitSound("npc/zombie/zombie_voice_idle" .. math.random(1, 14) .. ".wav")
     end
 end
 
 hook.Add("StartCommand", "rtd zombie", function(ply, cmd)
-    if ply:GetRtdEffect() ~= effect then return end
+    if not ply:HasRolledRtdEffect(effect) then return end
 
     if ply:TimeoutAction("rtd zombie jump", 2) and cmd:KeyDown(IN_JUMP) then
         ply:EmitSound("player/drown" .. math.random(1, 3) .. ".wav")

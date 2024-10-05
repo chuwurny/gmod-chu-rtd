@@ -24,13 +24,13 @@ function effect:CheckIfVisible(attacker, target, customPos)
     return tr.Entity == target
 end
 
-effect:HookLocalPlayer("CreateMove", function(self, lp, _, cmd)
+effect:HookLocalPlayer("CreateMove", function(self, context, cmd)
     local aimPos
 
-    local target = chuRtd.Helpers.FindNearestTarget(lp, function(target)
+    local target = context:FindNearestTarget(function(target)
         aimPos = self:CalculcateAimPos(target)
 
-        return self:CheckIfVisible(lp, target, aimPos)
+        return self:CheckIfVisible(context.Player, target, aimPos)
     end)
 
     if not IsValid(target) then return end
@@ -39,5 +39,5 @@ effect:HookLocalPlayer("CreateMove", function(self, lp, _, cmd)
     -- server it aims on serverside position rather than predicted interpolated
     -- prettiest clientside position) but it somehow works
 
-    cmd:SetViewAngles((aimPos - lp:GetShootPos()):Angle())
+    cmd:SetViewAngles((aimPos - context.Player:GetShootPos()):Angle())
 end)

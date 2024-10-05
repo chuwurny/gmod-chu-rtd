@@ -1,7 +1,7 @@
 local effect = chuRtd.Effects:Get("infinity-ammo")
 
-function effect:OnTick(ply)
-    local weapon = ply:GetActiveWeapon()
+function effect:OnTick(context)
+    local weapon = context.Player:GetActiveWeapon()
 
     if not IsValid(weapon) then return end
 

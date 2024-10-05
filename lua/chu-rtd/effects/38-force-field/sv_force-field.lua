@@ -3,13 +3,13 @@ local effect = chuRtd.Effects:Get("force-field")
 local FORCE = 0.2
 local MAX_DIST = 800 ^ 2
 
-function effect:OnTick(activator)
-    local src = activator:GetPos()
+function effect:OnTick(context)
+    local src = context.Player:GetPos()
 
     for _, ply in player.Iterator() do
         if
-            ply ~= activator and
-            chuRtd.Helpers.ShouldTarget(activator, ply)
+            ply ~= context.Player and
+            context:ShouldTarget(ply)
         then
             local dest = ply:GetPos()
             local dist = src:DistToSqr(dest)

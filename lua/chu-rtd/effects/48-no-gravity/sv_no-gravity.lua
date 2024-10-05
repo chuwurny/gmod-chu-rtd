@@ -1,12 +1,12 @@
 local effect = chuRtd.Effects:Get("no-gravity")
 
-function effect:OnRolled(ply, data)
-    data.oGravity = ply:GetGravity()
+function effect:OnRolled(context)
+    context.oGravity = context.Player:GetGravity()
 
     -- HACK: somehow after update value 0 doesn't work
-    ply:SetGravity(0.0001)
+    context.Player:SetGravity(0.0001)
 end
 
-function effect:OnEnded(ply, data)
-    ply:SetGravity(data.oGravity)
+function effect:OnEnded(context)
+    context.Player:SetGravity(context.oGravity)
 end

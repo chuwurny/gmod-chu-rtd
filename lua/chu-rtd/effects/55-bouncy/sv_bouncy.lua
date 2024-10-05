@@ -6,7 +6,7 @@ function effect:Bounce(ply, direction)
     ply:SetVelocity(direction * self.BOUNCE_SPEED)
 end
 
-function effect:OnTick(ply, data)
+function effect:OnTick(context)
     -- TODO: recode this crap.
     --
     -- This code is disgusting because i cannot add PhysicsCollide callback to
@@ -14,13 +14,13 @@ function effect:OnTick(ply, data)
 
     local function trace(dir)
         local tr = util.TraceLine({
-            start = ply:GetPos(),
-            endpos = ply:GetPos() + dir,
-            filter = ply,
+            start = context.Player:GetPos(),
+            endpos = context.Player:GetPos() + dir,
+            filter = context.Player,
         })
 
         if tr.Hit then
-            self:Bounce(ply, tr.HitNormal)
+            self:Bounce(context.Player, tr.HitNormal)
 
             return true
         end
@@ -28,8 +28,8 @@ function effect:OnTick(ply, data)
         return false
     end
 
-    local mins = ply:OBBMins()
-    local maxs = ply:OBBMaxs()
+    local mins = context.Player:OBBMins()
+    local maxs = context.Player:OBBMaxs()
 
     if
         trace(Vector(0, 0, -5)) or
@@ -46,7 +46,7 @@ end
 hook.Add("EntityTakeDamage", "rtd bouncy", function(ply, dmg)
     if not ply:IsPlayer() then return end
     if not dmg:IsFallDamage() then return end
-    if ply:GetRtdEffect() ~= effect then return end
+    if not ply:HasRolledRtdEffect(effect) then return end
 
     return true
 end)

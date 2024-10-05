@@ -7,12 +7,12 @@ local effect = chuRtd.Effects:Get("airstrike")
 effect.SPAWN_INTERVAL = 0.2
 effect.DAMAGE_AMOUNT  = 100
 
-function effect:OnTick(ply)
-    if not ply:TimeoutAction("rtd airstrike", self.SPAWN_INTERVAL) then
+function effect:OnTick(context)
+    if not context.Player:TimeoutAction("rtd airstrike", self.SPAWN_INTERVAL) then
         return
     end
 
-    local tr = ply:GetEyeTraceNoCursor()
+    local tr = context.Player:GetEyeTraceNoCursor()
 
     if not tr.Hit then
         return
@@ -21,7 +21,7 @@ function effect:OnTick(ply)
     local spawnPos = tr.HitPos
     spawnPos.z = spawnPos.z + 1000
 
-    local missile = artilleryEffect:CreateMissile(spawnPos, ply, self.DAMAGE_AMOUNT)
+    local missile = artilleryEffect:CreateMissile(spawnPos, context.Player, self.DAMAGE_AMOUNT)
 
     if not IsValid(missile) then
         return

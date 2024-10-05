@@ -19,14 +19,14 @@ function effect:Scare(target, dirToAvoid)
     target:EmitSound(self.GASP_SOUNDS[math.random(#self.GASP_SOUNDS)])
 end
 
-function effect:OnTick(rtdPly)
+function effect:OnTick(context)
     for _, ply in player.Iterator() do
-        if ply ~= rtdPly then
+        if ply ~= context.Player then
             local tr = ply:GetEyeTraceNoCursor()
 
-            local dir = (ply:GetShootPos() - rtdPly:GetShootPos()):GetNormalized()
+            local dir = (ply:GetShootPos() - context.Player:GetShootPos()):GetNormalized()
 
-            if tr.Entity ~= rtdPly then
+            if tr.Entity ~= context.Player then
                 local lookDir = tr.Normal
                 local dotAmount = lookDir:Dot(dir)
                 local lookAngle = math.acos(dotAmount)

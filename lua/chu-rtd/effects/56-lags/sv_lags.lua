@@ -1,14 +1,14 @@
 local effect = chuRtd.Effects:Get("lags")
 
-function effect:OnTick(ply, data)
-    if not ply:TimeoutAction("rtd lag", 0.5) then return end
+function effect:OnTick(context)
+    if not context.Player:TimeoutAction("rtd lag", 0.5) then return end
 
-    if data.LagPos then
-        ply:ExitVehicle()
-        ply:SetPos(data.LagPos)
+    if context.LagPos then
+        context.Player:ExitVehicle()
+        context.Player:SetPos(context.LagPos)
 
-        data.LagPos = nil
+        context.LagPos = nil
     else
-        data.LagPos = ply:GetPos()
+        context.LagPos = context.Player:GetPos()
     end
 end

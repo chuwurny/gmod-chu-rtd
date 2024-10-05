@@ -12,17 +12,15 @@ function chuRtd.Roll(ply, effectId)
         effectId = effect.Id
     end
 
-    if ply:IsRtdActive() then
-        chuRtd.Stop(ply)
+    if ply:HasRolledRtdEffect(effect) then
+        ply:GetRtdEffectContext(effect):Stop()
     end
 
-    local data, duration
+    local context, duration
 
-    if not effect._Once then
-        data = {}
-
-        ply.RtdData = data
-
+    if effect._Once then
+        context = chuRtd._EffectContextEx(ply, effect, nil, nil)
+    else
         if type(effect._Duration) == "number" then
             duration = effect._Duration
         elseif type(effect._Duration) == "table" then
@@ -31,21 +29,23 @@ function chuRtd.Roll(ply, effectId)
             duration = math.random(10, 20)
         end
 
-        data.StartTime = CurTime()
-        data.EndTime = data.StartTime + duration
+        context = chuRtd._EffectContext(ply, effect, duration)
 
-        ply:SetNWInt("churtd effect", chuRtd.Effects:Index(effectId))
-
-        ply:SetNW2Float("churtd starttime", data.StartTime)
-        ply:SetNW2Float("churtd endtime", data.EndTime)
+        ply.RolledRtdEffects:Set(effectId, context)
     end
 
-    xpcall(effect.OnRolled, ErrorNoHaltWithStack, effect, ply, data)
+    xpcall(effect.OnRolled, ErrorNoHaltWithStack, effect, context)
 
-    ply:RPC("chuRtd.__OnRolled", chuRtd.Effects:Index(effectId), data)
+    x.RPCAll(
+        "chuRtd.__OnRolled",
+        ply,
+        chuRtd.Effects:Index(effectId),
+        context.StartTime,
+        context.EndTime
+    )
 
     if effect.FormatMessage ~= effect._NO_FORMAT_MESSAGE then
-        x.PrettyPrintLangAll("chu-rtd", effect:FormatMessage(ply, data))
+        x.PrettyPrintLangAll("chu-rtd", effect:FormatMessage(context))
     else
         local msg = {
             team.GetColor(ply:Team()),
@@ -112,7 +112,7 @@ function chuRtd.RollRandom(ply, luckiness)
 end
 
 local function processTryRoll(ply)
-    if ply:IsRtdActive() then
+    if ply:HasAnyRolledRtdEffect() then
         ply:PrettyPrintLang("chu-rtd", x.ColorRed, { "you-already-have-rtd" })
 
         return false
@@ -147,18 +147,61 @@ function chuRtd.TryRollRandom(ply, luckiness)
     return true
 end
 
-function chuRtd.Stop(ply, reasonPhrase)
-    if not ply.RtdData then return end
+local function endEffect(context)
+    xpcall(
+        context.Effect.OnEnded,
+        ErrorNoHaltWithStack,
+        context.Effect,
+        context
+    )
 
-    local effect = ply:GetRtdEffect()
-    local data = ply.RtdData
+    x.RPCAll(
+        "chuRtd.__OnEnded",
+        context.Player,
+        chuRtd.Effects:Index(context.Effect.Id)
+    )
+end
 
-    ply.RtdData = nil
-    ply:SetNWInt("churtd effect", 0)
+function chuRtd.Stop(ply, effectId, reasonPhrase)
+    if type(effectId) == "table" then
+        effectId = effectId.Id
+    end
 
-    xpcall(effect.OnEnded, ErrorNoHaltWithStack, effect, ply, data)
+    if not ply:HasRolledRtdEffect(effectId) then return end
 
-    ply:RPC("chuRtd.__OnEnded", chuRtd.Effects:Index(effect.Id))
+    local context = ply:GetRtdEffectContext(effectId)
+
+    ply.RolledRtdEffects:Delete(effectId)
+
+    endEffect(context)
+
+    x.PrettyPrintLangAll(
+        "chu-rtd",
+        team.GetColor(ply:Team()),
+        ply:Name(),
+        " ",
+        context.Effect.Type.Color,
+        " ",
+        { context.Effect.PhraseName },
+        " ",
+        x.ColorLightGray,
+        { reasonPhrase or "effect-ended" }
+    )
+end
+
+function chuRtd.StopAll(ply, reasonPhrase)
+    if not ply:HasAnyRolledRtdEffect() then return end
+
+    -- correctly stop by order
+    ply.RolledRtdEffects:Sort(function(a, b)
+        return a.StartTime < b.StartTime
+    end)
+
+    for _, context in ipairs(ply.RolledRtdEffects.Values) do
+        endEffect(context)
+    end
+
+    ply.RolledRtdEffects:Clear()
 
     x.PrettyPrintLangAll(
         "chu-rtd",

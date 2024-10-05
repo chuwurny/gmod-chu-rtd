@@ -18,8 +18,8 @@ function effect:HandleProjectileSameAs(className, deriveClassName)
     self:HandleProjectile(className, deriveHandler)
 end
 
-function effect:OnTick(ply)
-    local target = chuRtd.Helpers.FindNearestTarget(ply, nil, MAX_DISTANCE)
+function effect:OnTick(context)
+    local target = context:FindNearestTarget(nil, MAX_DISTANCE)
 
     if not IsValid(target) then return end
 
@@ -28,9 +28,9 @@ function effect:OnTick(ply)
     for className, handler in pairs(self.PROJECTILES) do
         for _, projectile in ipairs(ents.FindByClass(className)) do
             if
-                projectile:GetInternalVariable("m_hThrower") == ply or
-                projectile:GetInternalVariable("m_hOwner") == ply or
-                projectile:GetOwner() == ply
+                projectile:GetInternalVariable("m_hThrower") == context.Player or
+                projectile:GetInternalVariable("m_hOwner") == context.Player or
+                projectile:GetOwner() == context.Player
             then
                 handler(self, projectile, destPos)
             end

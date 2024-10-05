@@ -1,10 +1,10 @@
 local effect = chuRtd.Effects:Get("lets-build")
 
-function effect:OnRolled(ply)
-    ply:StripWeapons()
+function effect:OnRolled(context)
+    context.Player:StripWeapons()
 
-    ply:Give("weapon_physgun")
-    ply:Give("gmod_tool")
+    context.Player:Give("weapon_physgun")
+    context.Player:Give("gmod_tool")
 
-    ply:RPC("chuRtd.__SayRandomBuildPhrase")
+    context.Player:RPC("chuRtd.__SayRandomBuildPhrase")
 end

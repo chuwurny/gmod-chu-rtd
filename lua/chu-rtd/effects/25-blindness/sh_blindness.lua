@@ -7,8 +7,8 @@ if CLIENT then
         surface.PlaySound("citadel.mo_sorrygordon")
     end
 
-    effect:HookLocalPlayer("HUDPaint", function(_, lp, data)
-        local fadeEndTime = lp:GetRtdStartTime() + 1
+    effect:HookLocalPlayer("HUDPaint", function(_, context)
+        local fadeEndTime = context.StartTime + 1
         local fadeDelta = math.min(1, 1 - ((fadeEndTime - CurTime()) / FADE_TIME))
 
         surface.SetAlphaMultiplier(fadeDelta)
