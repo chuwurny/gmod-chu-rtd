@@ -76,3 +76,4 @@ experience!
 - [x] **Lazer eyes**: Shoot lazers from you eyes
 - [ ] **No spread**
 - [x] **Quantum teleport**
+- [x] **Spin right round**
