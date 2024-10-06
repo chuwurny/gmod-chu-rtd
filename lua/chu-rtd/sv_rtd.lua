@@ -13,7 +13,22 @@ function chuRtd.Roll(ply, effectId)
     end
 
     if ply:HasRolledRtdEffect(effect) then
-        ply:GetRtdEffectContext(effect):Stop()
+        return false
+    end
+
+    for _, context in ipairs(ply.RolledRtdEffects.Values) do
+        if
+            context.Effect._Conflicts[effectId] or
+            effect._Conflicts[context.Effect.Id]
+        then
+            x.Warn(
+                "Tried to roll \"%s\", but it conflicts with \"%s\"",
+                effectId,
+                context.Effect.Id
+            )
+
+            return false
+        end
     end
 
     local context, duration
@@ -74,6 +89,8 @@ function chuRtd.Roll(ply, effectId)
 
         x.PrettyPrintLangAll("chu-rtd", unpack(msg))
     end
+
+    return true
 end
 
 function chuRtd.RollRandom(ply, luckiness)
@@ -100,15 +117,19 @@ function chuRtd.RollRandom(ply, luckiness)
     local effects = x.CopySequence(chuRtd.Effects.Values)
 
     repeat
-        x.Assert(#effects ~= 0,
-            "Cannot pick random effect: no suitable effects")
+        if #effects == 0 then
+            x.Warn("Cannot pick random effect: no suitable effects")
+
+            return false
+        end
 
         effect = table.remove(effects, math.random(#effects))
     until effect.Type == findType and
         effect:CanRoll(ply) and
-        hook.Run("ChuRtdCanRoll", ply, effect) ~= false
+        hook.Run("ChuRtdCanRoll", ply, effect) ~= false and
+        chuRtd.Roll(ply, effect)
 
-    return chuRtd.Roll(ply, effect)
+    return true
 end
 
 local function processTryRoll(ply)
@@ -132,9 +153,7 @@ function chuRtd.TryRoll(ply, effectId)
         return false
     end
 
-    chuRtd.Roll(ply, effectId)
-
-    return true
+    return chuRtd.Roll(ply, effectId)
 end
 
 function chuRtd.TryRollRandom(ply, luckiness)
@@ -142,9 +161,7 @@ function chuRtd.TryRollRandom(ply, luckiness)
         return false
     end
 
-    chuRtd.RollRandom(ply, luckiness)
-
-    return true
+    return chuRtd.RollRandom(ply, luckiness)
 end
 
 local function endEffect(context)
@@ -179,7 +196,6 @@ function chuRtd.Stop(ply, effectId, reasonPhrase)
         "chu-rtd",
         team.GetColor(ply:Team()),
         ply:Name(),
-        " ",
         context.Effect.Type.Color,
         " ",
         { context.Effect.PhraseName },

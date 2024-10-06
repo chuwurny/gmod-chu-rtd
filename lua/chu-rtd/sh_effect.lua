@@ -22,6 +22,16 @@ function EFFECT:RandDuration(min, max)
     return self:Duration({ Min = min, Max = max })
 end
 
+function EFFECT:Conflicts(effectId, ...)
+    if effectId == nil then
+        return self
+    end
+
+    self._Conflicts[effectId] = true
+
+    return self:Conflicts(...)
+end
+
 function EFFECT._NO_FORMAT_MESSAGE(context)
 end
 
@@ -73,6 +83,8 @@ function chuRtd.Effect(id, type)
 
         _Once = false,
         _Duration = nil,
+
+        _Conflicts = {},
     }, EFFECT)
 
     chuRtd.Effects:Set(id, effect)
