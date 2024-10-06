@@ -49,6 +49,7 @@ lang:Phrase("effect.lets-build.im-gonna-build-huge-d-i-mean-house",
 lang:Phrase("effect.beacon.name", "Маяк")
 lang:Phrase("effect.force-taunt.name", "Неконтролируемые танцы")
 lang:Phrase("effect.damage-distribution.name", "Распределение урона")
+lang:Phrase("effect.earthquake.name", "Землетрясение")
 lang:Phrase("effect.179fov.name", "Странное ощущение")
 lang:Phrase("effect.increased-damage-input.name", "Плохая выживаемость")
 
