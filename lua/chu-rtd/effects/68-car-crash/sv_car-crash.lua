@@ -53,6 +53,10 @@ function effect:OnTick(context)
 end
 
 function effect:OnEnded(context)
+    if context.Disconnected then
+        return SafeRemoveEntity(context.Car)
+    end
+
     if not IsValid(context.Car) then
         return
     end

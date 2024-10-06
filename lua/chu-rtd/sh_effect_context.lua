@@ -64,10 +64,14 @@ end
 
 function chuRtd._EffectContextEx(ply, effect, startTime, endTime)
     return setmetatable({
-        Player    = ply,
-        Effect    = effect,
-        StartTime = startTime,
-        EndTime   = endTime,
+        Player       = ply,
+        Effect       = effect,
+        StartTime    = startTime,
+        EndTime      = endTime,
+
+        Disconnected = false,
+        Fake         = false,
+        Temp         = false,
     }, EFFECT_CONTEXT)
 end
 
@@ -83,10 +87,8 @@ if SERVER then
 end
 
 do
-    local tempContext = setmetatable({
-        StartTime = 0,
-        EndTime   = 0,
-    }, EFFECT_CONTEXT)
+    local tempContext = chuRtd._EffectContextEx()
+    tempContext.Temp = true
 
     function chuRtd.TempEffectContext(ply, effect)
         tempContext.Player = ply
@@ -97,10 +99,9 @@ do
 end
 
 function chuRtd.FakeEffectContext(ply, effect)
-    return setmetatable({
-        Player    = ply,
-        Effect    = effect,
-        StartTime = 0,
-        EndTime   = 0,
-    }, EFFECT_CONTEXT)
+    local context = chuRtd._EffectContextEx(ply, effect, 0, 0)
+
+    context.Fake = true
+
+    return context
 end

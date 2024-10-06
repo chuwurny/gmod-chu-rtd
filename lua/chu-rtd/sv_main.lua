@@ -22,3 +22,22 @@ hook.Add("PlayerDeath", "churtd process", function(ply)
 
     chuRtd.StopAll(ply, "died-with-active-effect")
 end)
+
+hook.Add("PlayerDisconnected", "churtd process", function(ply)
+    if not ply.RolledRtdEffects then
+        return
+    end
+
+    for _, context in ipairs(ply.RolledRtdEffects.Values) do
+        if context.Effect._DisconnectAware then
+            context.Disconnected = true
+
+            xpcall(
+                context.Effect.OnEnded,
+                ErrorNoHaltWithStack,
+                context.Effect,
+                context
+            )
+        end
+    end
+end)

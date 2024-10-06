@@ -32,6 +32,12 @@ function EFFECT:Conflicts(effectId, ...)
     return self:Conflicts(...)
 end
 
+function EFFECT:DisconnectAware()
+    self._DisconnectAware = true
+
+    return self
+end
+
 function EFFECT._NO_FORMAT_MESSAGE(context)
 end
 
@@ -85,6 +91,8 @@ function chuRtd.Effect(id, type)
         _Duration = nil,
 
         _Conflicts = {},
+
+        _DisconnectAware = false,
     }, EFFECT)
 
     chuRtd.Effects:Set(id, effect)
