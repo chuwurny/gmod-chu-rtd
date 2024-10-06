@@ -69,6 +69,8 @@ function chuRtd.Roll(ply, effectId, force)
         context.EndTime
     )
 
+    hook.Run("ChuRtdOnRolled", context)
+
     if effect.FormatMessage ~= effect._NO_FORMAT_MESSAGE then
         x.PrettyPrintLangAll("chu-rtd", effect:FormatMessage(context))
     else
@@ -184,6 +186,8 @@ local function endEffect(context)
         context.Player,
         chuRtd.Effects:Index(context.Effect.Id)
     )
+
+    hook.Run("ChuRtdOnEnded", context)
 end
 
 function chuRtd.Stop(ply, effectId, reasonPhrase)
