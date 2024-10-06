@@ -26,15 +26,19 @@ function chuRtd.__OnEnded(ply, effectIndex)
     ply.RolledRtdEffects:Delete(effect.Id)
 end
 
-x.EnsureHasLocalPlayer(function(lp)
+x.EnsureInitPostEntity(function()
     for _, ply in player.Iterator() do
         ply.RolledRtdEffects = ply.RolledRtdEffects or x.Map()
     end
 
     hook.Add("Tick", "churtd", function()
-        for _, context in ipairs(lp.RolledRtdEffects.Values) do
-            if not context:IsExpired() then
-                context.Effect:OnTick(context)
+        for _, ply in player.Iterator() do
+            if ply.RolledRtdEffects then
+                for _, context in ipairs(ply.RolledRtdEffects.Values) do
+                    if not context:IsExpired() then
+                        context.Effect:OnTick(context)
+                    end
+                end
             end
         end
     end)
