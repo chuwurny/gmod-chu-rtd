@@ -10,6 +10,7 @@ lang:Phrase("cannot-rtd-when-dead", "You can't roll effect when dead")
 lang:Phrase("command-help", "Roll random effect")
 
 lang:Phrase("effect.godmode.name", "Godmode")
+lang:Phrase("effect.toxic.name", "Toxic")
 lang:Phrase("effect.overheal.name", "Overheal")
 lang:Phrase("effect.fast-speed.name", "Fast speed")
 lang:Phrase("effect.noclip.name", "Noclip")

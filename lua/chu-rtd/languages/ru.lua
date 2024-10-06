@@ -10,6 +10,7 @@ lang:Phrase("cannot-rtd-when-dead", "Ты не можешь получить э�
 lang:Phrase("command-help", "Получить случайный эффект")
 
 lang:Phrase("effect.godmode.name", "Режим бога")
+lang:Phrase("effect.toxic.name", "Токсичность")
 lang:Phrase("effect.overheal.name", "Сверхлечение")
 lang:Phrase("effect.fast-speed.name", "Быстрая скорость")
 lang:Phrase("effect.noclip.name", "Ноуклип")
