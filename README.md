@@ -75,3 +75,4 @@ experience!
 - [ ] **Meteorite**
 - [x] **Lazer eyes**: Shoot lazers from you eyes
 - [ ] **No spread**
+- [x] **Quantum teleport**
