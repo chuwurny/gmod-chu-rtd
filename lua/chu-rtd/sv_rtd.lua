@@ -1,4 +1,4 @@
-function chuRtd.Roll(ply, effectId)
+function chuRtd.Roll(ply, effectId, force)
     local effect
 
     if type(effectId) == "string" then
@@ -10,6 +10,16 @@ function chuRtd.Roll(ply, effectId)
     else
         effect = effectId
         effectId = effect.Id
+    end
+
+    if not force then
+        if not effect:CanRoll(ply) then
+            return false
+        end
+
+        if hook.Run("ChuRtdCanRoll", ply, effect) == false then
+            return false
+        end
     end
 
     if ply:HasRolledRtdEffect(effect) then
@@ -124,10 +134,7 @@ function chuRtd.RollRandom(ply, luckiness)
         end
 
         effect = table.remove(effects, math.random(#effects))
-    until effect.Type == findType and
-        effect:CanRoll(ply) and
-        hook.Run("ChuRtdCanRoll", ply, effect) ~= false and
-        chuRtd.Roll(ply, effect)
+    until effect.Type == findType and chuRtd.Roll(ply, effect)
 
     return true
 end
