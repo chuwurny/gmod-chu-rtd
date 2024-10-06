@@ -1,5 +1,6 @@
 x.Dependency("chu-rtd", "sh_types.lua")
 x.Dependency("chu-rtd", "cl_rtd.lua")
+x.Dependency("chu-rtd", "sh_language.lua")
 
 chuRtd.EFFECT = chuRtd.EFFECT or {}
 
@@ -20,6 +21,20 @@ end
 
 function EFFECT:RandDuration(min, max)
     return self:Duration({ Min = min, Max = max })
+end
+
+function EFFECT:LanguagePhrase(phraseId, customKey)
+    phraseId = "effect." .. self.Id .. "." .. phraseId
+
+    if customKey ~= nil then
+        self.LanguagePhrases[customKey] = phraseId
+    else
+        table.insert(self.LanguagePhrases, phraseId)
+    end
+
+    chuRtd.LanguageContext:DefineLanguagePhrase(phraseId)
+
+    return self
 end
 
 function EFFECT:Conflicts(effectId, ...)
@@ -84,18 +99,18 @@ function chuRtd.Effect(id, type)
         PhraseName = "effect." .. id .. ".name",
         Type = type,
 
-        LanguagePhrases = {},
-        _LanguagePhrasesAltered = false,
-
         _Once = false,
         _Duration = nil,
 
+        LanguagePhrases = {},
         _Conflicts = {},
 
         _DisconnectAware = false,
     }, EFFECT)
 
     chuRtd.Effects:Set(id, effect)
+
+    chuRtd.LanguageContext:DefineLanguagePhrase(effect.PhraseName)
 
     return effect
 end

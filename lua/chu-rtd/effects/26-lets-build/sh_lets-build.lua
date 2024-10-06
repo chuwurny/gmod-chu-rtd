@@ -1,12 +1,9 @@
 local effect = chuRtd.Effect("lets-build", chuRtd.TYPE_NEUTRAL):Once()
-
-effect.LanguagePhrases = {
-    "oh-i-love-building",
-    "bob-the-builder-can-we-fix-it",
-    "bought-gmod-to-build",
-    "i-hate-pvp-lets-build",
-    "im-gonna-build-huge-d-i-mean-house",
-}
+    :LanguagePhrase("oh-i-love-building")
+    :LanguagePhrase("bob-the-builder-can-we-fix-it")
+    :LanguagePhrase("bought-gmod-to-build")
+    :LanguagePhrase("i-hate-pvp-lets-build")
+    :LanguagePhrase("im-gonna-build-huge-d-i-mean-house")
 
 if CLIENT then
     function effect:SayRandomPhrase()
