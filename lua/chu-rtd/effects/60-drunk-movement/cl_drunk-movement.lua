@@ -1,4 +1,5 @@
 local effect = chuRtd.Effects:Get("drunk-movement")
+    :OnlyLocalPlayer()
 
 effect.RANDOMIZE_INTERVAL = 1
 
