@@ -93,3 +93,5 @@ lang:Phrase("effect.zombie.name", "Зомби")
 lang:Phrase("effect.lazer-cat-eyes.name", "Лазеры из глаз")
 lang:Phrase("effect.quantum-tp.name", "Квантовое перемещение")
 lang:Phrase("effect.spin-me.name", "Ю спин ми райт раунд")
+lang:Phrase("effect.trembling-hands.name", "Дрожащие руки")
+

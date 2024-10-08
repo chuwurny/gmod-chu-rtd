@@ -77,3 +77,5 @@ experience!
 - [ ] **No spread**
 - [x] **Quantum teleport**
 - [x] **Spin right round**
+- [x] **Trembling hands**
+

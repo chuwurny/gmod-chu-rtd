@@ -93,3 +93,5 @@ lang:Phrase("effect.zombie.name", "Zombie")
 lang:Phrase("effect.lazer-cat-eyes.name", "Lazer eyes")
 lang:Phrase("effect.quantum-tp.name", "Quantum teleportation")
 lang:Phrase("effect.spin-me.name", "They spin me right round")
+lang:Phrase("effect.trembling-hands.name", "Trembling hands")
+
