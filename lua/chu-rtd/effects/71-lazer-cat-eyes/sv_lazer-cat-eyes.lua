@@ -20,9 +20,11 @@ function effect:OnTick(context)
     local tr = context.Player:GetEyeTraceNoCursor()
 
     if not tr.Hit then return end
+    if tr.HitWorld then return end
 
     local target = tr.Entity
 
+    -- TODO: should we make checkings if we can damage this entity?
     target:Ignite(1)
 
     if context.Player:TimeoutAction("rtd lazer cat eyes", 0.1) then
