@@ -53,6 +53,14 @@ function EFFECT:DisconnectAware()
     return self
 end
 
+function EFFECT:OnlyLocalPlayer()
+    if CLIENT then
+        self._OnlyLocalPlayer = true
+    end
+
+    return self
+end
+
 function EFFECT._NO_FORMAT_MESSAGE(context)
 end
 
@@ -106,6 +114,7 @@ function chuRtd.Effect(id, type)
         _Conflicts = {},
 
         _DisconnectAware = false,
+        _OnlyLocalPlayer = false,
     }, EFFECT)
 
     chuRtd.Effects:Set(id, effect)
